@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block title %}Categories - MCQ Management{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1><i data-feather="folder" class="me-2"></i>Categories</h1>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createCategoryModal">
+                <i data-feather="plus" class="me-2"></i>Add Category
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Categories Table -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                {% if categories %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Created</th>
+                                    <th class="text-end">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for category in categories %}
+                                <tr>
+                                    <td>
+                                        <strong>{{ category.name }}</strong>
+                                    </td>
+                                    <td>
+                                        <span class="text-muted">
+                                            {{ category.description if category.description else 'No description' }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <small class="text-muted">{{ category.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+                                    </td>
+                                    <td class="text-end">
+                                        <div class="btn-group" role="group">
+                                            <button class="btn btn-sm btn-outline-secondary" 
+                                                    onclick="editCategory({{ category.id }}, '{{ category.name }}', '{{ category.description }}')"
+                                                    data-bs-toggle="modal" data-bs-target="#editCategoryModal">
+                                                <i data-feather="edit-2"></i>
+                                            </button>
+                                            <a href="{{ url_for('subcategories', category_id=category.id) }}" 
+                                               class="btn btn-sm btn-outline-primary">
+                                                <i data-feather="folder-plus"></i>
+                                            </a>
+                                            <form method="POST" action="{{ url_for('delete_category', category_id=category.id) }}" 
+                                                  class="d-inline" onsubmit="return confirm('Are you sure? This will delete all subcategories and questions in this category.')">
+                                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                    <i data-feather="trash-2"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="text-center py-5">
+                        <i data-feather="folder" class="mb-3" style="width: 3rem; height: 3rem;"></i>
+                        <h4>No Categories Yet</h4>
+                        <p class="text-muted">Create your first category to get started with organizing your MCQ questions.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createCategoryModal">
+                            <i data-feather="plus" class="me-2"></i>Create Category
+                        </button>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Create Category Modal -->
+<div class="modal fade" id="createCategoryModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="POST" action="{{ url_for('create_category') }}">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create New Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Category Name *</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Category</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Category Modal -->
+<div class="modal fade" id="editCategoryModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="POST" id="editCategoryForm">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="editName" class="form-label">Category Name *</label>
+                        <input type="text" class="form-control" id="editName" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="editDescription" name="description" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update Category</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function editCategory(id, name, description) {
+    document.getElementById('editCategoryForm').action = '/backend/categories/' + id + '/edit';
+    document.getElementById('editName').value = name;
+    document.getElementById('editDescription').value = description;
+}
+</script>
+{% endblock %}

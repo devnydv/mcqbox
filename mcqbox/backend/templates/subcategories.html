@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+
+{% block title %}Subcategories - MCQ Management{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1><i data-feather="folder-plus" class="me-2"></i>Subcategories</h1>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createSubcategoryModal">
+                <i data-feather="plus" class="me-2"></i>Add Subcategory
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Filter -->
+<div class="row mb-3">
+    <div class="col-md-4">
+        <form method="GET">
+            <div class="input-group">
+                <select name="category_id" class="form-select" onchange="this.form.submit()">
+                    <option value="">All Categories</option>
+                    {% for category in categories %}
+                    <option value="{{ category.id }}" {% if selected_category and category.id == selected_category.id %}selected{% endif %}>
+                        {{ category.name }}
+                    </option>
+                    {% endfor %}
+                </select>
+                <button class="btn btn-outline-secondary" type="submit">
+                    <i data-feather="filter"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+    {% if selected_category %}
+    <div class="col-md-8">
+        <div class="alert alert-info mb-0">
+            <i data-feather="info" class="me-2"></i>
+            Showing subcategories for: <strong>{{ selected_category.name }}</strong>
+            <a href="{{ url_for('subcategories') }}" class="btn btn-sm btn-outline-primary ms-2">Show All</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Subcategories Table -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                {% if subcategories %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Description</th>
+                                    <th>Created</th>
+                                    <th class="text-end">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for subcategory in subcategories %}
+                                <tr>
+                                    <td>
+                                        <strong>{{ subcategory.name }}</strong>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-secondary">
+                                            {{ subcategory.category.name if subcategory.category.name else 'Unknown' }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="text-muted">
+                                            {{ subcategory.description if subcategory.description else 'No description' }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <small class="text-muted">{{ subcategory.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+                                    </td>
+                                    <td class="text-end">
+                                        <div class="btn-group" role="group">
+                                            <button class="btn btn-sm btn-outline-secondary" 
+                                                    onclick="editSubcategory('{{ subcategory.id }}', '{{ subcategory.name }}', '{{ subcategory.description }}', {{ subcategory.category_id }})"
+                                                    data-bs-toggle="modal" data-bs-target="#editSubcategoryModal">
+                                                <i data-feather="edit-2"></i>
+                                            </button>
+                                            <a href="{{ url_for('questions', subcategory_id=subcategory.id) }}" 
+                                               class="btn btn-sm btn-outline-primary">
+                                                <i data-feather="help-circle"></i>
+                                            </a>
+                                            <form method="POST" action="{{ url_for('delete_subcategory', subcategory_id=subcategory.id) }}" 
+                                                  class="d-inline" onsubmit="return confirm('Are you sure? This will delete all questions in this subcategory.')">
+                                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                    <i data-feather="trash-2"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="text-center py-5">
+                        <i data-feather="folder-plus" class="mb-3" style="width: 3rem; height: 3rem;"></i>
+                        <h4>No Subcategories Yet</h4>
+                        {% if selected_category %}
+                            <p class="text-muted">No subcategories found in <strong>{{ selected_category.name }}</strong> category.</p>
+                        {% else %}
+                            <p class="text-muted">Create your first subcategory to organize your MCQ questions.</p>
+                        {% endif %}
+                        {% if categories %}
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createSubcategoryModal">
+                                <i data-feather="plus" class="me-2"></i>Create Subcategory
+                            </button>
+                        {% else %}
+                            <p class="text-muted">You need to create at least one category first.</p>
+                            <a href="{{ url_for('categories') }}" class="btn btn-primary">
+                                <i data-feather="folder" class="me-2"></i>Create Category
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Create Subcategory Modal -->
+<div class="modal fade" id="createSubcategoryModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="POST" action="{{ url_for('create_subcategory') }}">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create New Subcategory</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="category_id" class="form-label">Category *</label>
+                        <select class="form-select" id="category_id" name="category_id" required>
+                            <option value="">Select a category</option>
+                            {% for category in categories %}
+                            <option value="{{ category.id }}" {% if selected_category and category.id == selected_category.id %}selected{% endif %}>
+                                {{ category.name }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Subcategory Name *</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Subcategory</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Subcategory Modal -->
+<div class="modal fade" id="editSubcategoryModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="POST" id="editSubcategoryForm">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Subcategory</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="editCategoryId" class="form-label">Category *</label>
+                        <select class="form-select" id="editCategoryId" name="category_id" required>
+                            {% for category in categories %}
+                            <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editName" class="form-label">Subcategory Name *</label>
+                        <input type="text" class="form-control" id="editName" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="editDescription" name="description" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update Subcategory</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function editSubcategory(id, name, description, categoryId) {
+    document.getElementById('editSubcategoryForm').action = '/backend/subcategories/' + id + '/edit';
+    document.getElementById('editName').value = name;
+    document.getElementById('editDescription').value = description;
+    document.getElementById('editCategoryId').value = categoryId;
+}
+</script>
+{% endblock %}

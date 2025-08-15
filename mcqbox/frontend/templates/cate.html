@@ -1,0 +1,159 @@
+{% from "micro/nav.html" import nav %}
+
+{% extends "home.html" %}
+
+{% block head %}
+  
+
+  <title> MCQbox - Explore vast Categories </title>
+  <meta property="og:title" content="MCQbox - Explore vast Categories">
+  <meta property="og:url" content="/">
+  <meta property="og:type" content="website">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="">
+  <meta property="twitter:image"
+    content="">
+
+  <!-- <link rel="stylesheet" href="./ClassWise MCQ - Master Your Studies_files/fonts.css"> -->
+  <!-- <link rel="stylesheet" href="../public/css/ctxmenu.css"> -->
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" w-tid="7">
+  <!--title>Select Subject - ClassWise MCQ</title-->
+  <!-- <link href="./ClassWise MCQ - Master Your Studies_files/css2" rel="stylesheet" w-tid="11"> -->
+  <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/subject.css') }}" w-tid="13">
+  <!-- <script type="importmap" w-tid="15">
+    {
+      "imports": {
+        "./questions.js": "./questions.js"
+      }
+    }
+    </script> -->
+{% endblock %}
+
+{% block content %}
+
+
+
+{{ nav() }}
+  <main class="subjects-main" w-tid="45">
+    <div class="container" w-tid="47">
+      <div class="subjects-header" w-tid="49">
+        <!-- <button class="back-btn" onclick="window.history.back()" w-tid="51">
+          <span w-tid="53">←</span> Back to Classes
+        </button> -->
+        <h1 class="subjects-title" w-tid="55">Select Subject for <span id="class-name" w-tid="57">Class 6</span></h1>
+        <p class="subjects-subtitle" w-tid="59">Choose a subject to start practicing MCQs</p>
+      </div>
+
+      <div class="subjects-grid" id="subjects-grid" w-tid="61">
+
+        <a href="/category/class6/maths/1">
+        <div class="subject-card" style="animation-delay: 0s;">
+          <div class="subject-icon">📝</div>
+          <h3 class="subject-name">Mathematics</h3>
+          <p class="subject-description">Basic arithmetic, geometry, and algebra</p>
+          <div class="subject-stats">
+            <span class="topic-count">120 Topics</span>
+          </div>
+          <button class="btn btn-primary subject-btn">
+            Start Practice
+          </button>
+        </div>
+        </a>
+
+        <div class="subject-card" style="animation-delay: 0.1s;">
+          <div class="subject-icon">📝</div>
+          <h3 class="subject-name">Science</h3>
+          <p class="subject-description">Physics, chemistry, and biology basics</p>
+          <div class="subject-stats">
+            <span class="topic-count">95 Topics</span>
+          </div>
+          <button class="btn btn-primary subject-btn">
+            Start Practice
+          </button>
+        </div>
+
+        <div class="subject-card" style="animation-delay: 0.2s;">
+          <div class="subject-icon">📚</div>
+          <h3 class="subject-name">English</h3>
+          <p class="subject-description">Grammar, vocabulary, and comprehension</p>
+          <div class="subject-stats">
+            <span class="topic-count">80 Topics</span>
+          </div>
+          <button class="btn btn-primary subject-btn">
+            Start Practice
+          </button>
+        </div>
+
+        <div class="subject-card" style="animation-delay: 0.3s;">
+          <div class="subject-icon">🇮🇳</div>
+          <h3 class="subject-name">Hindi</h3>
+          <p class="subject-description">Language skills and literature</p>
+          <div class="subject-stats">
+            <span class="topic-count">70 Topics</span>
+          </div>
+          <button class="btn btn-primary subject-btn">
+            Start Practice
+          </button>
+        </div>
+        <div class="subject-card" style="animation-delay: 0.4s;">
+          <div class="subject-icon">🌍</div>
+          <h3 class="subject-name">Social Studies</h3>
+          <p class="subject-description">History, geography, and civics</p>
+          <div class="subject-stats">
+            <span class="topic-count">85 Topics</span>
+          </div>
+          <button class="btn btn-primary subject-btn">
+            Start Practice
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+<footer class="footer" w-tid="271">
+        <div class="container" w-tid="273">
+            <div class="footer-content" w-tid="275">
+                <div class="footer-brand" w-tid="277">
+                    <h3 w-tid="279">MCQbox</h3>
+                    <p w-tid="281">Your ultimate destination for interactive learning through multiple-choice questions. We make education engaging and accessible for everyone</p>
+                </div>
+                <div class="footer-links" w-tid="283">
+                    <div class="footer-column" w-tid="285">
+                        <h4 w-tid="287">Quick Links</h4>
+                        <a href="https://classwise-mcq-master-your-studies--cooloak59015911.on.websim.com/?v=4#home"
+                            w-tid="289">Home</a>
+                        <a href="https://classwise-mcq-master-your-studies--cooloak59015911.on.websim.com/?v=4#classes"
+                            w-tid="291">Classes</a>
+                        <a href="https://classwise-mcq-master-your-studies--cooloak59015911.on.websim.com/?v=4#about"
+                            w-tid="293">About</a>
+                        <a href="https://classwise-mcq-master-your-studies--cooloak59015911.on.websim.com/?v=4#contact"
+                            w-tid="295">Contact</a>
+                    </div>
+                    <div class="footer-column" w-tid="297">
+                        <h4 w-tid="299">Classes</h4>
+                        <a href="https://classwise-mcq-master-your-studies--cooloak59015911.on.websim.com/?v=4#class-6"
+                            w-tid="301">Class 6-8</a>
+                        <a href="https://classwise-mcq-master-your-studies--cooloak59015911.on.websim.com/?v=4#class-9"
+                            w-tid="303">Class 9-10</a>
+                        <a href="https://classwise-mcq-master-your-studies--cooloak59015911.on.websim.com/?v=4#class-11"
+                            w-tid="305">Class 11-12</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom" w-tid="307">
+                <p w-tid="309">© 2025 MCQBox. All rights reserved. Made with ❤️ for learners worldwide.</p>
+            </div>
+        </div>
+    </footer>
+  <!-- <script type="text/javascript" crossorigin="anonymous" -->
+  <!-- src="./ClassWise MCQ - Master Your Studies_files/config.js.download"></script> -->
+  <script src="../public/js/script.js" w-tid="63"></script>
+
+
+
+
+
+
+{%endblock%}
