@@ -2,10 +2,10 @@ from mcqbox import app
 
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 #from data_store import DataStore
-from mcqbox.model import db, Category, Subcategory, Question
+from mcqbox.model import db, Category, Subcategory, Question, Tags
 
 # Configure logging
- 
+
 
 #app = Flask(__name__)
 # app.secret_key = os.environ.get("SESSION_SECRET", "dev-secret-key-change-in-production")
@@ -209,6 +209,7 @@ def edit_subcategory(subcategory_id):
         flash(str(e), 'error')
     
     return redirect(url_for('subcategories'))
+
 #done
 @app.route('/backend/subcategories/<int:subcategory_id>/delete', methods=['POST'])
 def delete_subcategory(subcategory_id):
@@ -223,6 +224,71 @@ def delete_subcategory(subcategory_id):
         flash(str(e), 'error')
     
     return redirect(url_for('subcategories'))
+
+@app.route('/api/tags')
+def api_tags():
+    """API endpoint to get all tags"""
+    tags = Tags.query.all()
+    #tags = data_store.get_all_tags()
+    return jsonify({
+            'id': tags.id,
+            'name': tags.name,
+            'colour': tags.colour
+        })
+
+@app.route('/backend/tags')
+def tags():
+    """Tags management page"""
+    tags_list = Tags.query.all()
+    #tags_list = data_store.get_all_tags()
+    return render_template('tags.html', tags=tags_list)
+
+@app.route('/backend/tags/create', methods=['POST'])
+def create_tag():
+    """Create new tag"""
+    name = request.form.get('name', '').strip()
+    color = request.form.get('color', '#6c757d').strip()
+    
+    if not name:
+        flash('Tag name is required', 'error')
+        return redirect(url_for('tags'))
+    
+    try:
+        tag = Tags(
+            name=name,
+            colour=color
+        )
+        db.session.add(tag)
+        db.session.commit()
+        #data_store.create_tag(name, color)
+        flash('Tag created successfully', 'success')
+    except ValueError as e:
+        db.session.rollback()
+        flash(str(e), 'error')
+    
+    return redirect(url_for('tags'))
+
+@app.route('/backend/tags/<tag_name>/delete', methods=['POST'])
+def delete_tag(tag_name):
+    """Delete tag"""
+    
+    try:
+        tag = Tags.query.filter_by(name=tag_name).first()
+        if not tag:
+            flash('Tag not found', 'error')
+            return redirect(url_for('tags'))
+        
+        db.session.delete(tag)
+        db.session.commit()
+        #data_store.delete_tag(tag_name)
+        flash('Tag deleted successfully', 'success')
+    except ValueError as e:
+        db.session.rollback()
+        flash(str(e), 'error')
+    
+    return redirect(url_for('tags'))
+
+
 #done
 @app.route('/backend/questions')
 def questions():
@@ -230,10 +296,10 @@ def questions():
     category_id = request.args.get('category_id', type=int)
     subcategory_id = request.args.get('subcategory_id', type=int)
     search = request.args.get('search', '').strip()
-    
+    tag_filter = request.args.get('tag', '').strip()
     categories_list = Category.query.all()
     subcategories_list = []
-    
+    tags_list = Tags.query.all()
     if category_id:
         subcategories_list = Subcategory.query.filter_by(category_id=category_id).all()
         
@@ -244,6 +310,9 @@ def questions():
         filters.append(Question.category_id == category_id)
     if subcategory_id:
         filters.append(Question.subcategory_id == subcategory_id)
+    tag_filter = request.args.get('tag', '').strip()
+    if tag_filter:
+        filters.append(Question.tag == tag_filter)
     if search:
         filters.append(Question.question_text.ilike(f'%{search}%'))
     
@@ -257,6 +326,7 @@ def questions():
                          questions=questions_list, 
                          categories=categories_list,
                          subcategories=subcategories_list,
+                         tags=tags_list,
                          selected_category=category_id,
                          selected_subcategory=subcategory_id,
                          search_query=search)
@@ -267,9 +337,17 @@ def create_question():
     question_text = request.form.get('question_text', '').strip()
     subcategory_id = request.form.get('subcategory_id', type=int)
     category_id = request.form.get('category_id', type=int)
+    explanation = request.form.get('explanation', '').strip()
+    if not explanation:
+        explanation = None
     options = []
-    correct_option = request.form.get('correct_option', type=int)
     
+    correct_option = request.form.get('correct_option', type=int)
+    tags_id = request.form.get('tags', type= int)
+    
+    
+    
+
     # Get all options
     for i in range(1, 5):  # Assuming max 4 options
         option_text = request.form.get(f'option_{i}', '').strip()
@@ -300,7 +378,9 @@ def create_question():
             question_text=question_text,
             subcategory_id=subcategory_id,
             category_id= category_id,
-            options=options
+            options=options,
+            explanation=explanation,
+            tag=tags_id
         )
         db.session.add(question)
         db.session.commit()
@@ -317,7 +397,9 @@ def edit_question(question_id):
     """Edit existing question"""
     question_text = request.form.get('question_text', '').strip()
     subcategory_id = request.form.get('subcategory_id', type=int)
-    
+    tags_id = request.form.get('tags', type=int)
+    category_id = request.form.get('category_id', type=int)
+    #explanation = request.form.get('explanation', '').strip()
     options = []
     correct_option = request.form.get('correct_option', type=int)
     
@@ -351,6 +433,8 @@ def edit_question(question_id):
         question.question_text = question_text
         question.subcategory_id = subcategory_id
         question.options = options
+        question.category_id = category_id
+        question.tag = tags_id
         db.session.commit()
         #data_store.update_question(question_id, question_text, subcategory_id, options)
         flash('Question updated successfully', 'success')
@@ -427,7 +511,7 @@ def api_question(question_id):
         'subcategory_id': question.subcategory_id,
         'question_text': question.question_text,
         'options': question.options,
-        
+        "tag": question.tag,
     })
     except ValueError:
         return jsonify({'error': 'Question not found'}), 404

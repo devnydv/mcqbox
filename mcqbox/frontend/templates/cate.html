@@ -43,16 +43,18 @@
         <!-- <button class="back-btn" onclick="window.history.back()" w-tid="51">
           <span w-tid="53">←</span> Back to Classes
         </button> -->
-        <h1 class="subjects-title" w-tid="55">Select Subject for <span id="class-name" w-tid="57">Class 6</span></h1>
+        
+        <h1 class="subjects-title" w-tid="55">Select Subject for <span id="class-name" w-tid="57">{{cat}}</span></h1>
         <p class="subjects-subtitle" w-tid="59">Choose a subject to start practicing MCQs</p>
       </div>
 
       <div class="subjects-grid" id="subjects-grid" w-tid="61">
+{%for subcat in subcategories %}
 
-        <a href="/category/class6/maths/1">
+        <a href="/category/{{cat|replace(' ', '-')}}/{{subcat['name']|replace(' ', '-')}}/1">
         <div class="subject-card" style="animation-delay: 0s;">
           <div class="subject-icon">📝</div>
-          <h3 class="subject-name">Mathematics</h3>
+          <h3 class="subject-name">{{subcat['name']|title}}</h3>
           <p class="subject-description">Basic arithmetic, geometry, and algebra</p>
           <div class="subject-stats">
             <span class="topic-count">120 Topics</span>
@@ -62,7 +64,7 @@
           </button>
         </div>
         </a>
-
+{%endfor%}
         <div class="subject-card" style="animation-delay: 0.1s;">
           <div class="subject-icon">📝</div>
           <h3 class="subject-name">Science</h3>

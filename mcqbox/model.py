@@ -37,13 +37,31 @@ class Subcategory(db.Model):
             'created_at': datetime.now(),
             'updated_at': datetime.now()
         }
+
+class Tags(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False, unique=True)
+    colour = db.Column(db.String(20), nullable=True)
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
     
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'colour': self.colour,
+            'created_at': datetime.now(),
+            
+        }
+
+
 class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     question_text = db.Column(db.String(500), nullable=False)
     subcategory_id = db.Column(db.Integer, db.ForeignKey('subcategory.id'), nullable=False)
     subcategory = db.relationship('Subcategory', backref=db.backref('questions', lazy=True))
-    # answer = db.Column(db.String(100), nullable=False)
+    tag = db.Column(db.Integer, db.ForeignKey('tags.id'), nullable=True)
+    explanation = db.Column(db.String(500), nullable=True)
     options = db.Column(db.JSON, nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
     category = db.relationship('Category', backref=db.backref('questions', lazy=True))

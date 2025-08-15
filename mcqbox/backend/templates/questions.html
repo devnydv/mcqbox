@@ -39,16 +39,26 @@
                         {% endfor %}
                     </select>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    <select name="tag" class="form-select" id="tagSelect" onchange="this.form.submit()">
+                        <option value="">All Tags</option>
+                        {% for tag in tags %}
+                        <option value="{{ tag.name_lower }}" {% if tag.name_lower == selected_tag %}selected{% endif %}>
+                            {{ tag.name }} ({{ tag.question_count }})
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-2">
                     <div class="input-group">
-                        <input type="text" name="search" class="form-control" placeholder="Search questions..." 
+                        <input type="text" name="search" class="form-control" placeholder="Search..." 
                                value="{{ search_query }}" id="searchInput">
                         <button class="btn btn-outline-secondary" type="button" onclick="searchQuestions()">
                             <i data-feather="search"></i>
                         </button>
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-1">
                     <a href="{{ url_for('questions') }}" class="btn btn-outline-secondary w-100">
                         <i data-feather="x" class="me-1"></i>Clear
                     </a>
@@ -71,6 +81,7 @@
                                     <th>Question</th>
                                     <th>Category</th>
                                     <th>Subcategory</th>
+                                    <th>Tags</th>
                                     <th>Options</th>
                                     <th>Created</th>
                                     <th class="text-end">Actions</th>
@@ -84,13 +95,22 @@
                                     </td>
                                     <td>
                                         <span class="badge bg-primary">
-                                            {{ question.category.name if question.category.name else 'Unknown' }}
+                                            {{ question.category_name if question.category_name else 'Unknown' }}
                                         </span>
                                     </td>
                                     <td>
                                         <span class="badge bg-secondary">
-                                            {{ question.subcategory.name if question.subcategory.name else 'Unknown' }}
+                                            {{ question.subcategory_name if question.subcategory_name else 'Unknown' }}
                                         </span>
+                                    </td>
+                                    <td>
+                                        {% if question.tag_objects %}
+                                            {% for tag in question.tag_objects %}
+                                                <span class="badge me-1" style="background-color: {{ tag.color }}; color: white;">{{ tag.name }}</span>
+                                            {% endfor %}
+                                        {% else %}
+                                            <small class="text-muted">No tags</small>
+                                        {% endif %}
                                     </td>
                                     <td>
                                         <small class="text-muted">{{ question.options|length }} options</small>
@@ -180,6 +200,21 @@
                         <label for="question_text" class="form-label">Question Text *</label>
                         <textarea class="form-control" id="question_text" name="question_text" rows="3" required></textarea>
                     </div>
+                    <div class="mb-3">
+                        <label for="explanation" class="form-label">Explanation</label>
+                        <textarea class="form-control" id="explanation" name="explanation" rows="2" 
+                                  placeholder="Provide detailed explanation for this question (optional)"></textarea>
+                        <div class="form-text">This explanation will be shown to users when they click the explanation button</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tags" class="form-label">Tag</label>
+                        <select class="form-select" id="tags" name="tags">
+                            <option value="">Select a tag (optional)</option>
+                            {% for tag in tags %}
+                            <option value="{{ tag.id }}">{{ tag.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
                     
                     <h6>Options</h6>
                     <div class="mb-3">
@@ -245,7 +280,7 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="editCategoryId" class="form-label">Category *</label>
-                        <select class="form-select" id="editCategoryId" onchange="updateEditSubcategories()" required>
+                        <select class="form-select" id="editCategoryId" name="category_id" onchange="updateEditSubcategories()" required>
                             {% for category in categories %}
                             <option value="{{ category.id }}">{{ category.name }}</option>
                             {% endfor %}
@@ -259,6 +294,21 @@
                     <div class="mb-3">
                         <label for="edit_question_text" class="form-label">Question Text *</label>
                         <textarea class="form-control" id="edit_question_text" name="question_text" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_explanation" class="form-label">Explanation</label>
+                        <textarea class="form-control" id="edit_explanation" name="explanation" rows="2" 
+                                  placeholder="Provide detailed explanation for this question (optional)"></textarea>
+                        <div class="form-text">This explanation will be shown to users when they click the explanation button</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_tags" class="form-label">Tag</label>
+                        <select class="form-select" id="edit_tags" name="tags">
+                            <option value="">Select a tag (optional)</option>
+                            {% for tag in tags %}
+                            <option value="{{ tag.id }}">{{ tag.name }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
                     
                     <h6>Options</h6>
@@ -425,12 +475,25 @@ function viewQuestion(questionId) {
                 `;
             });
             
+            let tagsHtml = '';
+            if (question.tag_objects && question.tag_objects.length > 0) {
+                tagsHtml = question.tag_objects.map(tag => 
+                    `<span class="badge me-1" style="background-color: ${tag.color}; color: white;">${tag.name}</span>`
+                ).join('');
+            } else {
+                tagsHtml = '<small class="text-muted">No tags</small>';
+            }
+            
             content.innerHTML = `
                 <div class="mb-3">
                     <strong>Category:</strong> <span class="badge bg-primary">${question.category_name || 'Unknown'}</span>
                 </div>
                 <div class="mb-3">
                     <strong>Subcategory:</strong> <span class="badge bg-secondary">${question.subcategory_name || 'Unknown'}</span>
+                </div>
+                <div class="mb-3">
+                    <strong>Tags:</strong><br>
+                    <div class="mt-2">${tagsHtml}</div>
                 </div>
                 <div class="mb-3">
                     <strong>Question:</strong><br>
@@ -458,6 +521,7 @@ function editQuestion(questionId) {
             document.getElementById('edit_question_text').value = question.question_text;
             document.getElementById('editCategoryId').value = question.category_id;
             
+            
             // Update subcategories first
             updateEditSubcategories();
             
@@ -465,6 +529,14 @@ function editQuestion(questionId) {
             setTimeout(() => {
                 document.getElementById('editSubcategoryId').value = question.subcategory_id;
             }, 100);
+            
+            // Set tag
+            document.getElementById('edit_tags').value = question.tag;
+            
+            // const tagsSelect = document.getElementById('edit_tags');
+            // if (tagsSelect && question.tags && question.tags.length > 0) {
+            //     tagsSelect.value = question.tags[0];
+            // }
             
             // Set options
             question.options.forEach((option, index) => {
@@ -493,6 +565,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Tag selection now works like regular dropdowns - no special handling needed
 });
+
+
 </script>
 {% endblock %}

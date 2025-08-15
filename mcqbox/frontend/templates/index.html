@@ -20,7 +20,9 @@
     <!-- include nav  -->
   {{ nav() }}
     <!-- Hero Section -->
+     
     <section class="hero" id="home">
+
         <div class="container">
             <h1>Master any subject with MCQBox</h1>
             <p>Master any subject with our interactive multiple-choice questions. Learn, practice, and excel with
@@ -33,20 +35,20 @@
         <div class="container">
             <h2>Learning Categories</h2>
             <div class="grid">
-                
+                {% for cat in category %}
+                {%set string = cat.name.replace(" ", "-")%}
                 <div class="card">
-                    <a href="/category/class6">
+                    <a href="/category/{{string}}">
                     <div>
-                    <h3><span class="card-icon">📝</span>Class 6</h3>
-                    <p>Master mathematical concepts from basic arithmetic to advanced calculus. Practice with
-                        step-by-step solutions and detailed explanations.</p>
+                    <h3><span class="card-icon">📝</span>{{cat.name}}</h3>
+                    <p>{{cat.description}}</p>
                     <!-- <a href="" class="btn">Start Learning</a> -->
                     <button class="btn">Start Learning</button>
                     </div>
                     </a>
                     
                 </div>
-                
+                {%endfor%}
                 <div class="card">
                     <h3><span class="card-icon">📝</span>Science</h3>
                     <p>Explore physics, chemistry, and biology through interactive questions. Build a strong foundation

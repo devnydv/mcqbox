@@ -52,6 +52,12 @@
                             <i data-feather="help-circle" class="me-1"></i>Questions
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint == 'tags' %}active{% endif %}" 
+                           href="{{ url_for('tags') }}">
+                            <i data-feather="tag" class="me-1"></i>Tags
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
