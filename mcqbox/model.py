@@ -21,7 +21,7 @@ class Category(db.Model):
     
 class Subcategory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=False, unique=True)
+    name = db.Column(db.String(50), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
     category = db.relationship('Category', backref=db.backref('subcategories', lazy=True))
     description = db.Column(db.String(200), nullable=True)

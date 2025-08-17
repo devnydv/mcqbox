@@ -6,11 +6,14 @@ from mcqbox.model import db, Category, Subcategory, Question
 @app.route("/")
 def home():
     category = Category.query.all()
-    
     return render_template("index.html", category = category)
 
+@app.route("/category")
+def category():
+    return "cat"
+
 @app.route("/category/<category_name>")
-def category(category_name):
+def subcategory(category_name):
     category_name = category_name.replace('-', ' ')
     category = Category.query.filter_by(name=category_name).first()
     if not category:
@@ -18,14 +21,22 @@ def category(category_name):
 
     # Access subcategories via backref
     subcategories = category.subcategories
-
-    
-    
-    return render_template("cate.html", cat = category_name, subcategories=subcategories)    
-@app.route("/category/<category>/<topic>/<id>")
-def mcq(category, topic, id):
-    print(category)
-    return render_template("mcq.html")  
+    return render_template("subcate.html", cat = category_name, subcategories=subcategories)    
+@app.route("/category/<category>/<subcat>/<id>")
+def mcq(category, subcat, id):
+    #handle category section
+    category = category.replace('-', ' ')
+    category_db = Category.query.filter_by(name=category).first()
+    cate_id = category_db.id
+    # handle subcategory section
+    subcat = subcat.replace('-', ' ')
+    subcategory_id = Subcategory.query.filter_by(name=subcat, category_id=cate_id).first()
+    subcat_id = subcategory_id.id if subcategory_id else None
+    question = Question.query.filter_by(subcategory_id=subcat_id, id=id).all()
+    #question = question[0] if question else None
+    print(question)
+   
+    return render_template("mcq.html" , questions=question, category=category, subcat=subcat, id=id)  
 
 
 

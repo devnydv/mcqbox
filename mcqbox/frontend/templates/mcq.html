@@ -1,21 +1,18 @@
 {% from "micro/nav.html" import nav %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends "home.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block head %}
     <title>MCQ Practice</title>
     <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/mcq.css') }}">
     <!-- <link rel="stylesheet" href="/public/css/ctxmenu.css"> -->
-     <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/nav.css') }}">
     <!-- <link rel="stylesheet" href="/public/css/nav.css"> -->
-</head>
+{% endblock %}
 
-<body w-tid="15">
+{% block content %}
     <!-- include nav  -->
 
-{{ nav() }}
+    {{ nav() }}
 
 
     <div class="container">
@@ -28,65 +25,63 @@
             <div class="chip">General Knowledge</div>
             <div class="chip">History</div>
             <div class="chip">Geography</div>
-            
+
         </div>
+        {% for question in questions%}
         <div class="mcq-card">
+            
+            
+
             <div class="question-number">Question 1</div>
-            <div class="question">What is the value of π (pi) to 2 decimal places?</div>
+            <div class="question">{{question.question_text}}</div>
             <div class="options">
-                <div class="option" onclick="selectOption(this, false)">A) 3.12</div>
+                {%for opt in question.options%}
+                <div class="option" onclick="selectOption(this, {{opt.is_correct |lower}})">{{opt.text}}</div>
+                
+                {% endfor %}
+                <!-- <div class="option" onclick="selectOption(this, false)">A) 3.12</div>
                 <div class="option" onclick="selectOption(this, true)">B) 3.14</div>
                 <div class="option" onclick="selectOption(this, false)">C) 3.16</div>
-                <div class="option" onclick="selectOption(this, false)">D) 3.18</div>
+                <div class="option" onclick="selectOption(this, false)">D) 3.18</div> -->
             </div>
-            <!-- <div class="action-buttons">
-                <button class="explanation-btn" onclick="toggleExplanation(this)">Show Explanation</button>
-                <button class="action-icon-btn bookmark-btn" onclick="toggleBookmark(this)"
-                    title="Bookmark this question">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
-                    </svg>
-                </button>
-                <button class="action-icon-btn report-btn" onclick="reportQuestion(this)" title="Report this question">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-                        <line x1="4" x2="4" y1="22" y2="15" />
-                    </svg>
-                </button>
-            </div> -->
-            
-            <div class= "lol">
-                
+
+
+            <div class="lol">
+
                 <div>
-                <button class="explanation-btn" onclick="toggleExplanation(this)">Show Explanation</button>
-            
-            
-                <div class="explanation">
-                π (pi) is a mathematical constant representing the ratio of a circle's circumference to its diameter.
-                Its value is approximately 3.14159, which rounds to 3.14 when expressed to 2 decimal places.
-                </div>
+                    <button class="explanation-btn" onclick="toggleExplanation(this)">Show Explanation</button>
+
+
+                    <div class="explanation">
+                        π (pi) is a mathematical constant representing the ratio of a circle's circumference to its
+                        diameter.
+                        Its value is approximately 3.14159, which rounds to 3.14 when expressed to 2 decimal places.
+                    </div>
                 </div>
                 <div class="action-buttons">
-                
-                <button class="action-icon-btn bookmark-btn" onclick="toggleBookmark(this)"
-                    title="Bookmark this question">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
-                    </svg>
-                </button>
-                <button class="action-icon-btn report-btn" onclick="reportQuestion(this)" title="Report this question">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-                        <line x1="4" x2="4" y1="22" y2="15" />
-                    </svg>
-                </button>
+
+                    <button class="action-icon-btn bookmark-btn" onclick="toggleBookmark(this)"
+                        title="Bookmark this question">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                        </svg>
+                    </button>
+                    <button class="action-icon-btn report-btn" onclick="reportQuestion(this)"
+                        title="Report this question">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                            <line x1="4" x2="4" y1="22" y2="15" />
+                        </svg>
+                    </button>
                 </div>
             </div>
 
-            
-            
-        </div>
 
+
+        </div>
+        {% endfor %}
         <div class="mcq-card">
             <div class="question-number">Question 2</div>
             <div class="question">Which planet is known as the "Red Planet"?</div>
@@ -96,10 +91,36 @@
                 <div class="option" onclick="selectOption(this, false)">C) Jupiter</div>
                 <div class="option" onclick="selectOption(this, false)">D) Saturn</div>
             </div>
-            <button class="explanation-btn" onclick="toggleExplanation(this)">Show Explanation</button>
-            <div class="explanation">
-                Mars is known as the "Red Planet" due to its reddish appearance, which is caused by iron oxide (rust) on
-                its surface. This distinctive color makes it easily recognizable in the night sky.
+            <div class="lol">
+
+                <div>
+                    <button class="explanation-btn" onclick="toggleExplanation(this)">Show Explanation</button>
+
+
+                    <div class="explanation">
+                        π (pi) is a mathematical constant representing the ratio of a circle's circumference to its
+                        diameter.
+                        Its value is approximately 3.14159, which rounds to 3.14 when expressed to 2 decimal places.
+                    </div>
+                </div>
+                <div class="action-buttons">
+
+                    <button class="action-icon-btn bookmark-btn" onclick="toggleBookmark(this)"
+                        title="Bookmark this question">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                        </svg>
+                    </button>
+                    <button class="action-icon-btn report-btn" onclick="reportQuestion(this)"
+                        title="Report this question">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                            <line x1="4" x2="4" y1="22" y2="15" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -136,7 +157,7 @@
             </div>
         </div>
 
-        <div class="mcq-card">
+        <!-- <div class="mcq-card">
             <div class="question-number">Question 5</div>
             <div class="question">What does "HTML" stand for?</div>
             <div class="options">
@@ -150,7 +171,7 @@
                 HTML stands for "HyperText Markup Language". It is the standard markup language used to create web pages
                 and web applications. HTML describes the structure of web pages using markup elements.
             </div>
-        </div>
+        </div> -->
 
         <div class="pagination">
             <button class="page-btn" onclick="previousPage()" disabled>← Previous</button>
@@ -199,32 +220,29 @@
 
     <script>
         function selectOption(option, isCorrect) {
-            // Remove previous selections from this question
-            const allOptions = option.parentElement.querySelectorAll('.option');
-            allOptions.forEach(opt => {
-                opt.classList.remove('selected', 'correct', 'incorrect');
-            });
+    // Remove previous selections from this question
+    const allOptions = option.parentElement.querySelectorAll('.option');
+    allOptions.forEach(opt => {
+        opt.classList.remove('selected', 'correct', 'incorrect');
+    });
 
-            // Mark the selected option
-            option.classList.add('selected');
+    // Mark the selected option
+    option.classList.add('selected');
 
-            // Show correct/incorrect after a brief delay
-            setTimeout(() => {
-                allOptions.forEach(opt => {
-                    const optionText = opt.textContent;
-                    // This is a simple way to identify correct answers based on the content
-                    if ((optionText.includes('3.14') && option.parentElement.parentElement.querySelector('.question').textContent.includes('π')) ||
-                        (optionText.includes('Mars') && option.parentElement.parentElement.querySelector('.question').textContent.includes('Red Planet')) ||
-                        (optionText.includes('Au') && option.parentElement.parentElement.querySelector('.question').textContent.includes('gold')) ||
-                        (optionText.includes('Charles Darwin') && option.parentElement.parentElement.querySelector('.question').textContent.includes('evolution')) ||
-                        (optionText.includes('HyperText Markup Language') && option.parentElement.parentElement.querySelector('.question').textContent.includes('HTML'))) {
-                        opt.classList.add('correct');
-                    } else if (opt.classList.contains('selected') && !opt.classList.contains('correct')) {
-                        opt.classList.add('incorrect');
-                    }
-                });
-            }, 500);
-        }
+    // Show correct/incorrect after a brief delay
+    setTimeout(() => {
+        allOptions.forEach(opt => {
+            // Check if this option was passed as correct (via onclick param)
+            const isOptionCorrect = opt.getAttribute("onclick").includes("true");
+            if (isOptionCorrect) {
+                opt.classList.add('correct');
+            } else if (opt.classList.contains('selected')) {
+                opt.classList.add('incorrect');
+            }
+        });
+    }, 500);
+}
+
 
         function toggleExplanation(button) {
             const explanation = button.nextElementSibling;
@@ -303,6 +321,7 @@
             });
         });
     </script>
-</body>
+
 <script src="/public/js/script.js" w-tid="311"></script>
-</html>
+
+{% endblock %}
