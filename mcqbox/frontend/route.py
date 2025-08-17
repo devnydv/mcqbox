@@ -10,7 +10,8 @@ def home():
 
 @app.route("/category")
 def category():
-    return "cat"
+    category = Category.query.all()
+    return render_template("category.html" , category=category)
 
 @app.route("/category/<category_name>")
 def subcategory(category_name):
@@ -20,7 +21,9 @@ def subcategory(category_name):
         return {"error": "Category not found"}, 404
 
     # Access subcategories via backref
-    subcategories = category.subcategories
+    subcategories = category.subcategories if category else []
+    if not subcategories:
+        return render_template("subcate.html", cat = category_name, subcategories=None)
     return render_template("subcate.html", cat = category_name, subcategories=subcategories)    
 @app.route("/category/<category>/<subcat>/<id>")
 def mcq(category, subcat, id):

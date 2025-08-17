@@ -1,0 +1,45 @@
+{% from "micro/nav.html" import nav %}
+{% extends "home.html" %}
+
+{% block head %}
+<title> MCQbox - Explore vast Categories </title>
+<meta property="og:title" content="MCQbox - Explore vast Categories">
+<meta property="og:url" content="/">
+<meta property="og:type" content="website">
+<meta name="description" content="Explore a wide range of subjects and categories for MCQ practice.">
+
+{% endblock %}
+
+{% block content %}
+
+{{ nav() }}
+
+
+<section class="categories" id="categories">
+    <div class="container">
+        <h2>Learning Categories</h2>
+        <div class="grid">
+            {% for cat in category %}
+            {%set string = cat.name.replace(" ", "-")%}
+            <div class="card">
+                <a href="/category/{{string}}">
+                    <div>
+                        <h3><span class="card-icon">📝</span>{{cat.name |title}}</h3>
+                        <p>{{cat.description}}</p>
+                        <!-- <a href="" class="btn">Start Learning</a> -->
+                        <button class="btn">Start Learning</button>
+                    </div>
+                </a>
+
+            </div>
+            {%endfor%}
+            <!-- <div class="card">
+                <h3><span class="card-icon">📝</span>Science</h3>
+                <p>Explore physics, chemistry, and biology through interactive questions. Build a strong foundation
+                    in scientific principles.</p>
+                <a href="#" class="btn">Start Learning</a>
+            </div> -->
+        </div>
+    </div>
+</section>
+{% endblock %}
