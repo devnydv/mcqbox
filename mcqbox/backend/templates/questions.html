@@ -23,17 +23,19 @@
                     <select name="category_id" class="form-select" id="categorySelect" onchange="updateSubcategories()">
                         <option value="">All Categories</option>
                         {% for category in categories %}
-                        <option value="{{ category.id }}" {% if category.id == selected_category %}selected{% endif %}>
+                        <option value="{{ category.id }}" {% if category.id==selected_category %}selected{% endif %}>
                             {{ category.name }}
                         </option>
                         {% endfor %}
                     </select>
                 </div>
                 <div class="col-md-3">
-                    <select name="subcategory_id" class="form-select" id="subcategorySelect" onchange="this.form.submit()">
+                    <select name="subcategory_id" class="form-select" id="subcategorySelect"
+                        onchange="this.form.submit()">
                         <option value="">All Subcategories</option>
                         {% for subcategory in subcategories %}
-                        <option value="{{ subcategory.id }}" {% if subcategory.id == selected_subcategory %}selected{% endif %}>
+                        <option value="{{ subcategory.id }}" {% if subcategory.id==selected_subcategory %}selected{%
+                            endif %}>
                             {{ subcategory.name }}
                         </option>
                         {% endfor %}
@@ -43,16 +45,16 @@
                     <select name="tag" class="form-select" id="tagSelect" onchange="this.form.submit()">
                         <option value="">All Tags</option>
                         {% for tag in tags %}
-                        <option value="{{ tag.name_lower }}" {% if tag.name_lower == selected_tag %}selected{% endif %}>
-                            {{ tag.name }} ({{ tag.question_count }})
+                        <option value="{{ tag.id }}" {% if tag.id==selected_tag %}selected{% endif %}>
+                            {{ tag.name }}
                         </option>
                         {% endfor %}
                     </select>
                 </div>
                 <div class="col-md-2">
                     <div class="input-group">
-                        <input type="text" name="search" class="form-control" placeholder="Search..." 
-                               value="{{ search_query }}" id="searchInput">
+                        <input type="text" name="search" class="form-control" placeholder="Search..."
+                            value="{{ search_query }}" id="searchInput">
                         <button class="btn btn-outline-secondary" type="button" onclick="searchQuestions()">
                             <i data-feather="search"></i>
                         </button>
@@ -74,97 +76,98 @@
         <div class="card">
             <div class="card-body">
                 {% if questions %}
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Question</th>
-                                    <th>Category</th>
-                                    <th>Subcategory</th>
-                                    <th>Tags</th>
-                                    <th>Options</th>
-                                    <th>Created</th>
-                                    <th class="text-end">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for question in questions %}
-                                <tr>
-                                    <td>
-                                        <strong>{{ question.question_text[:100] }}{% if question.question_text|length > 100 %}...{% endif %}</strong>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-primary">
-                                            {{ question.category_name if question.category_name else 'Unknown' }}
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-secondary">
-                                            {{ question.subcategory_name if question.subcategory_name else 'Unknown' }}
-                                        </span>
-                                    </td>
-                                    <td>
-                                        {% if question.tag_objects %}
-                                            {% for tag in question.tag_objects %}
-                                                <span class="badge me-1" style="background-color: {{ tag.color }}; color: white;">{{ tag.name }}</span>
-                                            {% endfor %}
-                                        {% else %}
-                                            <small class="text-muted">No tags</small>
-                                        {% endif %}
-                                    </td>
-                                    <td>
-                                        <small class="text-muted">{{ question.options|length }} options</small>
-                                    </td>
-                                    <td>
-                                        <small class="text-muted">{{ question.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
-                                    </td>
-                                    <td class="text-end">
-                                        <div class="btn-group" role="group">
-                                            <button class="btn btn-sm btn-outline-secondary" 
-                                                    onclick="viewQuestion({{ question.id }})"
-                                                    data-bs-toggle="modal" data-bs-target="#viewQuestionModal">
-                                                <i data-feather="eye"></i>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Question</th>
+                                <th>Category</th>
+                                <th>Subcategory</th>
+                                <th>Tags</th>
+                                <th>Options</th>
+                                <th>Created</th>
+                                <th class="text-end">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for question in questions %}
+                            <tr>
+                                <td>
+                                    <strong>{{ question.question_text[:100] }}{% if question.question_text|length > 100
+                                        %}...{% endif %}</strong>
+                                </td>
+                                <td>
+                                    <span class="badge bg-primary">
+                                        {{ question.category.name if question.category.name else 'Unknown' }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge bg-secondary">
+                                        {{ question.subcategory.name if question.subcategory.name else 'Unknown' }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge bg-secondary">
+                                        {{ question.tag.name if question.tag.name else 'Unknown' }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <small class="text-muted">{{ question.options|length }} options</small>
+                                </td>
+                                <td>
+                                    <small class="text-muted">{{ question.created_at.strftime('%Y-%m-%d %H:%M')
+                                        }}</small>
+                                </td>
+                                <td class="text-end">
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-sm btn-outline-secondary"
+                                            onclick="viewQuestion({{ question.id }})" data-bs-toggle="modal"
+                                            data-bs-target="#viewQuestionModal">
+                                            <i data-feather="eye"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-secondary"
+                                            onclick="editQuestion({{ question.id }})" data-bs-toggle="modal"
+                                            data-bs-target="#editQuestionModal">
+                                            <i data-feather="edit-2"></i>
+                                        </button>
+                                        <form method="POST"
+                                            action="{{ url_for('delete_question', question_id=question.id) }}"
+                                            class="d-inline"
+                                            onsubmit="return confirm('Are you sure you want to delete this question?')">
+                                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                <i data-feather="trash-2"></i>
                                             </button>
-                                            <button class="btn btn-sm btn-outline-secondary" 
-                                                    onclick="editQuestion({{ question.id }})"
-                                                    data-bs-toggle="modal" data-bs-target="#editQuestionModal">
-                                                <i data-feather="edit-2"></i>
-                                            </button>
-                                            <form method="POST" action="{{ url_for('delete_question', question_id=question.id) }}" 
-                                                  class="d-inline" onsubmit="return confirm('Are you sure you want to delete this question?')">
-                                                <button type="submit" class="btn btn-sm btn-outline-danger">
-                                                    <i data-feather="trash-2"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
                 {% else %}
-                    <div class="text-center py-5">
-                        <i data-feather="help-circle" class="mb-3" style="width: 3rem; height: 3rem;"></i>
-                        <h4>No Questions Yet</h4>
-                        {% if search_query %}
-                            <p class="text-muted">No questions found matching your search: <strong>{{ search_query }}</strong></p>
-                        {% elif selected_category or selected_subcategory %}
-                            <p class="text-muted">No questions found in the selected filters.</p>
-                        {% else %}
-                            <p class="text-muted">Create your first MCQ question to get started.</p>
-                        {% endif %}
-                        {% if categories and subcategories %}
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createQuestionModal">
-                                <i data-feather="plus" class="me-2"></i>Create Question
-                            </button>
-                        {% else %}
-                            <p class="text-muted">You need to create categories and subcategories first.</p>
-                            <a href="{{ url_for('categories') }}" class="btn btn-primary">
-                                <i data-feather="folder" class="me-2"></i>Manage Categories
-                            </a>
-                        {% endif %}
-                    </div>
+                <div class="text-center py-5">
+                    <i data-feather="help-circle" class="mb-3" style="width: 3rem; height: 3rem;"></i>
+                    <h4>No Questions Yet</h4>
+                    {% if search_query %}
+                    <p class="text-muted">No questions found matching your search: <strong>{{ search_query }}</strong>
+                    </p>
+                    {% elif selected_category or selected_subcategory %}
+                    <p class="text-muted">No questions found in the selected filters.</p>
+                    {% else %}
+                    <p class="text-muted">Create your first MCQ question to get started.</p>
+                    {% endif %}
+                    {% if categories and subcategories %}
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createQuestionModal">
+                        <i data-feather="plus" class="me-2"></i>Create Question
+                    </button>
+                    {% else %}
+                    <p class="text-muted">You need to create categories and subcategories first.</p>
+                    <a href="{{ url_for('categories') }}" class="btn btn-primary">
+                        <i data-feather="folder" class="me-2"></i>Manage Categories
+                    </a>
+                    {% endif %}
+                </div>
                 {% endif %}
             </div>
         </div>
@@ -183,7 +186,8 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="createCategoryId" class="form-label">Category *</label>
-                        <select class="form-select" id="createCategoryId" onchange="updateCreateSubcategories()" name="category_id" required>
+                        <select class="form-select" id="createCategoryId" onchange="updateCreateSubcategories()"
+                            name="category_id" required>
                             <option value="">Select a category</option>
                             {% for category in categories %}
                             <option value="{{ category.id }}">{{ category.name }}</option>
@@ -198,13 +202,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="question_text" class="form-label">Question Text *</label>
-                        <textarea class="form-control" id="question_text" name="question_text" rows="3" required></textarea>
+                        <textarea class="form-control" id="question_text" name="question_text" rows="3"
+                            required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="explanation" class="form-label">Explanation</label>
-                        <textarea class="form-control" id="explanation" name="explanation" rows="2" 
-                                  placeholder="Provide detailed explanation for this question (optional)"></textarea>
-                        <div class="form-text">This explanation will be shown to users when they click the explanation button</div>
+                        <textarea class="form-control" id="explanation" name="explanation" rows="2"
+                            placeholder="Provide detailed explanation for this question (optional)"></textarea>
+                        <div class="form-text">This explanation will be shown to users when they click the explanation
+                            button</div>
                     </div>
                     <div class="mb-3">
                         <label for="tags" class="form-label">Tag</label>
@@ -215,7 +221,7 @@
                             {% endfor %}
                         </select>
                     </div>
-                    
+
                     <h6>Options</h6>
                     <div class="mb-3">
                         <div class="row">
@@ -280,7 +286,8 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="editCategoryId" class="form-label">Category *</label>
-                        <select class="form-select" id="editCategoryId" name="category_id" onchange="updateEditSubcategories()" required>
+                        <select class="form-select" id="editCategoryId" name="category_id"
+                            onchange="updateEditSubcategories()" required>
                             {% for category in categories %}
                             <option value="{{ category.id }}">{{ category.name }}</option>
                             {% endfor %}
@@ -293,13 +300,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="edit_question_text" class="form-label">Question Text *</label>
-                        <textarea class="form-control" id="edit_question_text" name="question_text" rows="3" required></textarea>
+                        <textarea class="form-control" id="edit_question_text" name="question_text" rows="3"
+                            required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="edit_explanation" class="form-label">Explanation</label>
-                        <textarea class="form-control" id="edit_explanation" name="explanation" rows="2" 
-                                  placeholder="Provide detailed explanation for this question (optional)"></textarea>
-                        <div class="form-text">This explanation will be shown to users when they click the explanation button</div>
+                        <textarea class="form-control" id="edit_explanation" name="explanation" rows="2"
+                            placeholder="Provide detailed explanation for this question (optional)"></textarea>
+                        <div class="form-text">This explanation will be shown to users when they click the explanation
+                            button</div>
                     </div>
                     <div class="mb-3">
                         <label for="edit_tags" class="form-label">Tag</label>
@@ -310,7 +319,7 @@
                             {% endfor %}
                         </select>
                     </div>
-                    
+
                     <h6>Options</h6>
                     <div class="mb-3">
                         <div class="row">
@@ -318,7 +327,8 @@
                                 <input class="form-check-input" type="radio" name="correct_option" value="1" required>
                             </div>
                             <div class="col-11">
-                                <input type="text" class="form-control" name="option_1" id="edit_option_1" placeholder="Option 1" required>
+                                <input type="text" class="form-control" name="option_1" id="edit_option_1"
+                                    placeholder="Option 1" required>
                             </div>
                         </div>
                     </div>
@@ -328,7 +338,8 @@
                                 <input class="form-check-input" type="radio" name="correct_option" value="2" required>
                             </div>
                             <div class="col-11">
-                                <input type="text" class="form-control" name="option_2" id="edit_option_2" placeholder="Option 2" required>
+                                <input type="text" class="form-control" name="option_2" id="edit_option_2"
+                                    placeholder="Option 2" required>
                             </div>
                         </div>
                     </div>
@@ -338,7 +349,8 @@
                                 <input class="form-check-input" type="radio" name="correct_option" value="3">
                             </div>
                             <div class="col-11">
-                                <input type="text" class="form-control" name="option_3" id="edit_option_3" placeholder="Option 3">
+                                <input type="text" class="form-control" name="option_3" id="edit_option_3"
+                                    placeholder="Option 3">
                             </div>
                         </div>
                     </div>
@@ -348,7 +360,8 @@
                                 <input class="form-check-input" type="radio" name="correct_option" value="4">
                             </div>
                             <div class="col-11">
-                                <input type="text" class="form-control" name="option_4" id="edit_option_4" placeholder="Option 4">
+                                <input type="text" class="form-control" name="option_4" id="edit_option_4"
+                                    placeholder="Option 4">
                             </div>
                         </div>
                     </div>
@@ -384,62 +397,62 @@
 
 {% block scripts %}
 <script>
-function updateSubcategories() {
-    const categoryId = document.getElementById('categorySelect').value;
-    const subcategorySelect = document.getElementById('subcategorySelect');
-    const form = document.getElementById('filterForm');
-    
-    // Clear subcategories
-    subcategorySelect.innerHTML = '<option value="">All Subcategories</option>';
-    
-    if (categoryId) {
-        fetch('/api/subcategories/' + categoryId)
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(subcategory => {
-                    const option = document.createElement('option');
-                    option.value = subcategory.id;
-                    option.textContent = subcategory.name;
-                    subcategorySelect.appendChild(option);
-                });
-                // Submit form after subcategories are loaded
-                form.submit();
-            })
-            .catch(error => {
-                console.error('Error loading subcategories:', error);
-                form.submit();
-            });
-    } else {
-        form.submit();
-    }
-}
+    function updateSubcategories() {
+        const categoryId = document.getElementById('categorySelect').value;
+        const subcategorySelect = document.getElementById('subcategorySelect');
+        const form = document.getElementById('filterForm');
 
-function updateCreateSubcategories() {
-    const categoryId = document.getElementById('createCategoryId').value;
-    const subcategorySelect = document.getElementById('createSubcategoryId');
-    
-    subcategorySelect.innerHTML = '<option value="">Select a subcategory</option>';
-    
-    if (categoryId) {
-        fetch('/api/subcategories/' + categoryId)
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(subcategory => {
-                    const option = document.createElement('option');
-                    option.value = subcategory.id;
-                    option.textContent = subcategory.name;
-                    subcategorySelect.appendChild(option);
-                });
-            });
-    }
-}
+        // Clear subcategories
+        subcategorySelect.innerHTML = '<option value="">All Subcategories</option>';
 
-function updateEditSubcategories() {
+        if (categoryId) {
+            fetch('/api/subcategories/' + categoryId)
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(subcategory => {
+                        const option = document.createElement('option');
+                        option.value = subcategory.id;
+                        option.textContent = subcategory.name;
+                        subcategorySelect.appendChild(option);
+                    });
+                    // Submit form after subcategories are loaded
+                    form.submit();
+                })
+                .catch(error => {
+                    console.error('Error loading subcategories:', error);
+                    form.submit();
+                });
+        } else {
+            form.submit();
+        }
+    }
+
+    function updateCreateSubcategories() {
+        const categoryId = document.getElementById('createCategoryId').value;
+        const subcategorySelect = document.getElementById('createSubcategoryId');
+
+        subcategorySelect.innerHTML = '<option value="">Select a subcategory</option>';
+
+        if (categoryId) {
+            fetch('/api/subcategories/' + categoryId)
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(subcategory => {
+                        const option = document.createElement('option');
+                        option.value = subcategory.id;
+                        option.textContent = subcategory.name;
+                        subcategorySelect.appendChild(option);
+                    });
+                });
+        }
+    }
+
+    function updateEditSubcategories(preselectId = null) {
     const categoryId = document.getElementById('editCategoryId').value;
     const subcategorySelect = document.getElementById('editSubcategoryId');
-    
+
     subcategorySelect.innerHTML = '<option value="">Select a subcategory</option>';
-    
+
     if (categoryId) {
         fetch('/api/subcategories/' + categoryId)
             .then(response => response.json())
@@ -450,51 +463,56 @@ function updateEditSubcategories() {
                     option.textContent = subcategory.name;
                     subcategorySelect.appendChild(option);
                 });
+
+                // ✅ preselect subcategory if provided
+                if (preselectId) {
+                    subcategorySelect.value = preselectId;
+                }
             });
     }
 }
 
-function searchQuestions() {
-    const form = document.getElementById('filterForm');
-    form.submit();
-}
+    function searchQuestions() {
+        const form = document.getElementById('filterForm');
+        form.submit();
+    }
 
-function viewQuestion(questionId) {
-    fetch('/api/question/' + questionId)
-        .then(response => response.json())
-        .then(question => {
-            const content = document.getElementById('viewQuestionContent');
-            
-            let optionsHtml = '';
-            question.options.forEach((option, index) => {
-                const correctBadge = option.is_correct ? '<span class="badge bg-success ms-2">Correct</span>' : '';
-                optionsHtml += `
+    function viewQuestion(questionId) {
+        fetch('/api/question/' + questionId)
+            .then(response => response.json())
+            .then(question => {
+                const content = document.getElementById('viewQuestionContent');
+                console.log(question);
+                let optionsHtml = '';
+                question.options.forEach((option, index) => {
+                    const correctBadge = option.is_correct ? '<span class="badge bg-success ms-2">Correct</span>' : '';
+                    optionsHtml += `
                     <div class="mb-2">
                         <strong>Option ${index + 1}:</strong> ${option.text} ${correctBadge}
                     </div>
                 `;
-            });
-            
-            let tagsHtml = '';
-            if (question.tag_objects && question.tag_objects.length > 0) {
-                tagsHtml = question.tag_objects.map(tag => 
-                    `<span class="badge me-1" style="background-color: ${tag.color}; color: white;">${tag.name}</span>`
-                ).join('');
-            } else {
-                tagsHtml = '<small class="text-muted">No tags</small>';
-            }
-            
-            content.innerHTML = `
+                });
+
+                let tagsHtml = '';
+                if (question.tag_objects && question.tag_objects.length > 0) {
+                    tagsHtml = question.tag_objects.map(tag =>
+                        `<span class="badge me-1" style="background-color: ${tag.color}; color: white;">${tag.name}</span>`
+                    ).join('');
+                } else {
+                    tagsHtml = '<small class="text-muted">No tags</small>';
+                }
+
+                content.innerHTML = `
                 <div class="mb-3">
-                    <strong>Category:</strong> <span class="badge bg-primary">${question.category_name || 'Unknown'}</span>
+                    <strong>Category:</strong> <span class="badge bg-primary">${question.category_id || 'Unknown'}</span>
                 </div>
                 <div class="mb-3">
-                    <strong>Subcategory:</strong> <span class="badge bg-secondary">${question.subcategory_name || 'Unknown'}</span>
+                    <strong>Subcategory:</strong> <span class="badge bg-secondary">${question.subcategory_id || 'Unknown'}</span>
                 </div>
                 <div class="mb-3">
-                    <strong>Tags:</strong><br>
-                    <div class="mt-2">${tagsHtml}</div>
+                    <strong>Tag:</strong> <span class="badge bg-secondary">${question.tag_id || 'Unknown'}</span>
                 </div>
+                
                 <div class="mb-3">
                     <strong>Question:</strong><br>
                     <p class="mt-2">${question.question_text}</p>
@@ -506,68 +524,81 @@ function viewQuestion(questionId) {
                     </div>
                 </div>
             `;
-        })
-        .catch(error => {
-            document.getElementById('viewQuestionContent').innerHTML = 
-                '<div class="alert alert-danger">Error loading question details.</div>';
-        });
-}
+            })
+            .catch(error => {
+                document.getElementById('viewQuestionContent').innerHTML =
+                    '<div class="alert alert-danger">Error loading question details.</div>';
+            });
+    }
 
-function editQuestion(questionId) {
-    fetch('/api/question/' + questionId)
-        .then(response => response.json())
-        .then(question => {
-            document.getElementById('editQuestionForm').action = '/backend/questions/' + questionId + '/edit';
-            document.getElementById('edit_question_text').value = question.question_text;
-            document.getElementById('editCategoryId').value = question.category_id;
-            
-            
-            // Update subcategories first
-            updateEditSubcategories();
-            
-            // Set subcategory after a short delay to allow options to load
-            setTimeout(() => {
-                document.getElementById('editSubcategoryId').value = question.subcategory_id;
-            }, 100);
-            
-            // Set tag
-            document.getElementById('edit_tags').value = question.tag;
-            
-            // const tagsSelect = document.getElementById('edit_tags');
-            // if (tagsSelect && question.tags && question.tags.length > 0) {
-            //     tagsSelect.value = question.tags[0];
-            // }
-            
-            // Set options
-            question.options.forEach((option, index) => {
-                const optionInput = document.getElementById('edit_option_' + (index + 1));
-                if (optionInput) {
-                    optionInput.value = option.text;
+    function editQuestion(questionId) {
+        fetch('/api/question/' + questionId)
+            .then(response => response.json())
+            .then(question => {
+                console.log(question)
+                document.getElementById('editQuestionForm').action = '/backend/questions/' + questionId + '/edit';
+                document.getElementById('edit_question_text').value = question.question_text;
+                document.getElementById('editCategoryId').value = question.category_id;
+                document.getElementById('edit_explanation').value = question.explanation || '';
+
+
+                // Update subcategories first
+                updateEditSubcategories();
+
+                // Set subcategory after a short delay to allow options to load
+                setTimeout(() => {
+                    document.getElementById('editSubcategoryId').value = question.subcategory_id;
+                }, 100);
+
+                // Set tag
+                document.getElementById('edit_tags').value = question.tag;
+
+                // const tagsSelect = document.getElementById('edit_tags');
+                // if (tagsSelect && question.tags && question.tags.length > 0) {
+                //     tagsSelect.value = question.tags[0];
+                // }
+
+                // Set options
+                // Reset all inputs & radios first
+                for (let i = 1; i <= 4; i++) {
+                    document.getElementById('edit_option_' + i).value = '';
+                    document.querySelector(`input[name="correct_option"][value="${i}"]`).checked = false;
                 }
-                
-                if (option.is_correct) {
-                    document.querySelector(`input[name="correct_option"][value="${index + 1}"]`).checked = true;
+
+                // Fill options from API
+                question.options.forEach((option, index) => {
+                    const num = index + 1; // matches 1..4
+                    const optionInput = document.getElementById('edit_option_' + num);
+                    if (optionInput) {
+                        optionInput.value = option.text || '';
+                    }
+
+                    if (option.is_correct) {
+                        const radio = document.querySelector(`input[name="correct_option"][value="${num}"]`);
+                        if (radio) {
+                            radio.checked = true;
+                        }
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error loading question:', error);
+            });
+    }
+
+    // Handle enter key in search input
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    searchQuestions();
                 }
             });
-        })
-        .catch(error => {
-            console.error('Error loading question:', error);
-        });
-}
+        }
 
-// Handle enter key in search input
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('searchInput');
-    if (searchInput) {
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchQuestions();
-            }
-        });
-    }
-    
-    // Tag selection now works like regular dropdowns - no special handling needed
-});
+        // Tag selection now works like regular dropdowns - no special handling needed
+    });
 
 
 </script>

@@ -1,6 +1,6 @@
 from mcqbox import app
 from flask import Flask, render_template
-from mcqbox.model import db, Category, Subcategory, Question
+from mcqbox.model import db, Category, Subcategory, Question, Tags
 
 
 @app.route("/")
@@ -37,8 +37,10 @@ def mcq(category, subcat, id):
     subcat_id = subcategory_id.id if subcategory_id else None
     question = Question.query.filter_by(subcategory_id=subcat_id, id=id).all()
     #question = question[0] if question else None
-    print(question)
-   
+    
+    #get tag list 
+    #tags = Tags.query.filter_by(subcategory_id=subcat_id).all()
+    #print
     return render_template("mcq.html" , questions=question, category=category, subcat=subcat, id=id)  
 
 
