@@ -93,7 +93,7 @@
                             {% for question in questions %}
                             <tr>
                                 <td>
-                                    <strong>{{ question.question_text[:100] }}{% if question.question_text|length > 100
+                                    <strong>{{loop.index}}-{{ question.question_text[:100] }}{% if question.question_text|length > 100
                                         %}...{% endif %}</strong>
                                 </td>
                                 <td>
