@@ -518,6 +518,10 @@
                     <p class="mt-2">${question.question_text}</p>
                 </div>
                 <div class="mb-3">
+                    <strong>Question:</strong><br>
+                    <p class="mt-2">${question.explanation}</p>
+                </div>
+                <div class="mb-3">
                     <strong>Options:</strong><br>
                     <div class="mt-2">
                         ${optionsHtml}
@@ -540,7 +544,7 @@
                 document.getElementById('edit_question_text').value = question.question_text;
                 document.getElementById('editCategoryId').value = question.category_id;
                 document.getElementById('edit_explanation').value = question.explanation || '';
-
+                
 
                 // Update subcategories first
                 updateEditSubcategories();
@@ -551,7 +555,7 @@
                 }, 100);
 
                 // Set tag
-                document.getElementById('edit_tags').value = question.tag;
+                document.getElementById('edit_tags').value = question.tag_id;
 
                 // const tagsSelect = document.getElementById('edit_tags');
                 // if (tagsSelect && question.tags && question.tags.length > 0) {

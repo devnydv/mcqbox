@@ -1,6 +1,6 @@
 from mcqbox import app
-from flask import Flask, render_template
-from mcqbox.model import db, Category, Subcategory, Question, Tags
+from flask import Flask, render_template, request
+from mcqbox.model import db, Category, Subcategory, Question, Tag
 
 
 @app.route("/")
@@ -25,23 +25,31 @@ def subcategory(category_name):
     if not subcategories:
         return render_template("subcate.html", cat = category_name, subcategories=None)
     return render_template("subcate.html", cat = category_name, subcategories=subcategories)    
-@app.route("/category/<category>/<subcat>/<id>")
-def mcq(category, subcat, id):
+@app.route("/category/<category>/<subcat>")
+def mcq(category, subcat):
     #handle category section
     category = category.replace('-', ' ')
     category_db = Category.query.filter_by(name=category).first()
     cate_id = category_db.id
+
     # handle subcategory section
     subcat = subcat.replace('-', ' ')
     subcategory_id = Subcategory.query.filter_by(name=subcat, category_id=cate_id).first()
     subcat_id = subcategory_id.id if subcategory_id else None
-    question = Question.query.filter_by(subcategory_id=subcat_id, id=id).all()
+    question = Question.query.filter_by(subcategory_id=subcat_id).all()
+
+    # handle tag section 
+    tag = request.args.get("tag")
+    if tag:
+        tag = tag.replace('-', ' ')
+        
+        question = Question.query.join(Tag).filter(Tag.name == tag).all()
     #question = question[0] if question else None
     
     #get tag list 
-    #tags = Tags.query.filter_by(subcategory_id=subcat_id).all()
+    tags = Tag.query.filter_by(subcategory_id=subcat_id).all()
     #print
-    return render_template("mcq.html" , questions=question, category=category, subcat=subcat, id=id)  
+    return render_template("mcq.html" , questions=question, category=category, subcat=subcat, id=id, tags=tags)  
 
 
 

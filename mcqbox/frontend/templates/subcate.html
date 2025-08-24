@@ -59,14 +59,14 @@
       {%for subcat in subcategories %}
 
 
-      <a href="/category/{{cat|replace(' ', '-')}}/{{subcat['name']|replace(' ', '-')}}/1">
+      <a href="/category/{{cat|replace(' ', '-')}}/{{subcat['name']|replace(' ', '-')}}">
         <div class="subject-card" style="animation-delay: 0s;">
           <div class="subject-icon">📝</div>
           <h3 class="subject-name">{{subcat['name']|title}}</h3>
-          <p class="subject-description">Basic arithmetic, geometry, and algebra</p>
-          <div class="subject-stats">
+          <p class="subject-description">{{subcat['description']}}</p>
+          <!-- <div class="subject-stats">
             <span class="topic-count">120 Topics</span>
-          </div>
+          </div> -->
           <button class="btn btn-primary subject-btn">
             Start Practice
           </button>

@@ -308,6 +308,7 @@ def edit_tag(tag_id):
         return redirect(url_for('tags'))
     try:
         tag = Tag.query.get(tag_id)
+        tag.name = name
         tag.subcategory_id = subcategory_id
         tag.category_id = category_id
         db.session.commit()
@@ -451,7 +452,7 @@ def edit_question(question_id):
     subcategory_id = request.form.get('subcategory_id', type=int)
     tags_id = request.form.get('tags', type=int)
     category_id = request.form.get('category_id', type=int)
-    #explanation = request.form.get('explanation', '').strip()
+    explanation = request.form.get('explanation', '').strip()
     options = []
     correct_option = request.form.get('correct_option', type=int)
     
@@ -486,7 +487,8 @@ def edit_question(question_id):
         question.subcategory_id = subcategory_id
         question.options = options
         question.category_id = category_id
-        question.tag = tags_id
+        question.tag_id = tags_id
+        question.explanation = explanation
         db.session.commit()
         #data_store.update_question(question_id, question_text, subcategory_id, options)
         flash('Question updated successfully', 'success')
@@ -559,12 +561,12 @@ def api_question(question_id):
         #question = data_store.get_question(question_id)
         return jsonify({
         'id': question.id,
-        'category_id': question.category.name,
-        'subcategory_id': question.subcategory.name,
+        'category_id': question.category.id,
+        'subcategory_id': question.subcategory.id,
         'question_text': question.question_text,
         'options': question.options,
         'explanation': question.explanation,
-        "tag_id": question.tag.name,
+        "tag_id": question.tag_id,
     })
     except ValueError:
         return jsonify({'error': 'Question not found'}), 404

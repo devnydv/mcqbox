@@ -2,85 +2,84 @@
 {% extends "home.html" %}
 
 {% block head %}
-    <title>MCQ Practice</title>
-    <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/mcq.css') }}">
-    <!-- <link rel="stylesheet" href="/public/css/ctxmenu.css"> -->
-    <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/nav.css') }}">
-    <!-- <link rel="stylesheet" href="/public/css/nav.css"> -->
+<title>MCQ Practice</title>
+<link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/mcq.css') }}">
+<!-- <link rel="stylesheet" href="/public/css/ctxmenu.css"> -->
+<link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/nav.css') }}">
+<!-- <link rel="stylesheet" href="/public/css/nav.css"> -->
 {% endblock %}
 
 {% block content %}
-    <!-- include nav  -->
+<!-- include nav  -->
 
-    {{ nav() }}
+{{ nav() }}
 
 
-    <div class="container">
-        <div class="chip-container">
-            <div class="chip active">Mathematics</div>
-            <div class="chip">Physics</div>
-            <div class="chip">Chemistry</div>
-            <div class="chip">Biology</div>
-            <div class="chip">Computer Science</div>
-            <div class="chip">General Knowledge</div>
-            <div class="chip">History</div>
-            <div class="chip">Geography</div>
+<div class="container">
+    <div class="chip-container">
+        {% for tag in tags %}
 
-        </div>
-        {% for question in questions%}
-        <div class="mcq-card">
-            
-            
 
-            <div class="question-number">Question 1</div>
-            <div class="question">{{question.question_text}}</div>
-            <div class="options">
-                {%for opt in question.options%}
-                <div class="option" onclick="selectOption(this, {{opt.is_correct |lower}})">{{opt.text}}</div>
-                
-                {% endfor %}
-                <!-- <div class="option" onclick="selectOption(this, false)">A) 3.12</div>
+
+        <div class="chip">{{tag.name}}</div>
+        {%endfor%}
+        <!-- <div class="chip">Physics</div>
+        <div class="chip">Chemistry</div>
+        <div class="chip">Biology</div> -->
+        
+
+    </div>
+    {% for question in questions%}
+    <div class="mcq-card">
+
+
+
+        <div class="question-number">Question {{ loop.index }}</div>
+        <div class="question">{{question.question_text}}</div>
+        <div class="options">
+            {%for opt in question.options%}
+            <div class="option" onclick="selectOption(this, {{opt.is_correct |lower}})">{{ loop.index }}) {{opt.text}}</div>
+
+            {% endfor %}
+            <!-- <div class="option" onclick="selectOption(this, false)">A) 3.12</div>
                 <div class="option" onclick="selectOption(this, true)">B) 3.14</div>
                 <div class="option" onclick="selectOption(this, false)">C) 3.16</div>
                 <div class="option" onclick="selectOption(this, false)">D) 3.18</div> -->
-            </div>
-
-
-            <div class="lol">
-
-                <div>
-                    <button class="explanation-btn" onclick="toggleExplanation(this)">Show Explanation</button>
-
-
-                    <div class="explanation">
-                        {{question.explanation}}
-                    </div>
-                </div>
-                <div class="action-buttons">
-
-                    <button class="action-icon-btn bookmark-btn" onclick="toggleBookmark(this)"
-                        title="Bookmark this question">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
-                        </svg>
-                    </button>
-                    <button class="action-icon-btn report-btn" onclick="reportQuestion(this)"
-                        title="Report this question">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-                            <line x1="4" x2="4" y1="22" y2="15" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-
-
         </div>
-        {% endfor %}
-        <!-- <div class="mcq-card">
+
+
+        <div class="lol">
+
+            <div>
+                <button class="explanation-btn" onclick="toggleExplanation(this)">Show Explanation</button>
+
+
+                <div class="explanation">
+                    {{question.explanation}}
+                </div>
+            </div>
+            <div class="action-buttons">
+
+                <button class="action-icon-btn bookmark-btn" onclick="toggleBookmark(this)"
+                    title="Bookmark this question">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                    </svg>
+                </button>
+                <button class="action-icon-btn report-btn" onclick="reportQuestion(this)" title="Report this question">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                        <line x1="4" x2="4" y1="22" y2="15" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+
+
+    </div>
+    {% endfor %}
+    <!-- <div class="mcq-card">
             <div class="question-number">Question 2</div>
             <div class="question">Which planet is known as the "Red Planet"?</div>
             <div class="options">
@@ -122,9 +121,9 @@
             </div>
         </div> -->
 
-        
 
-        <!-- <div class="mcq-card">
+
+    <!-- <div class="mcq-card">
             <div class="question-number">Question 5</div>
             <div class="question">What does "HTML" stand for?</div>
             <div class="options">
@@ -140,154 +139,171 @@
             </div>
         </div> -->
 
-        <!-- <div class="pagination">
+    <!-- <div class="pagination">
             <button class="page-btn" onclick="previousPage()" disabled>← Previous</button>
             <div class="page-info">Page 1 of 3</div>
             <button class="page-btn" onclick="nextPage()">Next →</button>
         </div> -->
 
-        <div class="recommended-section">
-            <h2 class="section-title">Recommended Topics</h2>
-            <div class="recommended-grid">
-                <div class="topic-card" onclick="selectTopic('advanced-math')">
-                    <div class="topic-icon">📐</div>
-                    <h3 class="topic-title">Advanced Mathematics</h3>
-                    <p class="topic-description">Explore calculus, linear algebra, and complex mathematical concepts
-                        with challenging problems.</p>
-                    <div class="topic-stats">
-                        <span class="difficulty">Difficulty: Hard</span>
-                        <span class="questions-count">25 Questions</span>
-                    </div>
+    <!-- <div class="recommended-section">
+        <h2 class="section-title">Recommended Topics</h2>
+        <div class="recommended-grid">
+            <div class="topic-card" onclick="selectTopic('advanced-math')">
+                <div class="topic-icon">📐</div>
+                <h3 class="topic-title">Advanced Mathematics</h3>
+                <p class="topic-description">Explore calculus, linear algebra, and complex mathematical concepts
+                    with challenging problems.</p>
+                <div class="topic-stats">
+                    <span class="difficulty">Difficulty: Hard</span>
+                    <span class="questions-count">25 Questions</span>
                 </div>
+            </div>
 
-                <div class="topic-card" onclick="selectTopic('quantum-physics')">
-                    <div class="topic-icon">⚛️</div>
-                    <h3 class="topic-title">Quantum Physics</h3>
-                    <p class="topic-description">Dive into the fascinating world of quantum mechanics and particle
-                        physics fundamentals.</p>
-                    <div class="topic-stats">
-                        <span class="difficulty">Difficulty: Expert</span>
-                        <span class="questions-count">20 Questions</span>
-                    </div>
+            <div class="topic-card" onclick="selectTopic('quantum-physics')">
+                <div class="topic-icon">⚛️</div>
+                <h3 class="topic-title">Quantum Physics</h3>
+                <p class="topic-description">Dive into the fascinating world of quantum mechanics and particle
+                    physics fundamentals.</p>
+                <div class="topic-stats">
+                    <span class="difficulty">Difficulty: Expert</span>
+                    <span class="questions-count">20 Questions</span>
                 </div>
+            </div>
 
-                <div class="topic-card" onclick="selectTopic('data-structures')">
-                    <div class="topic-icon">💻</div>
-                    <h3 class="topic-title">Data Structures</h3>
-                    <p class="topic-description">Master arrays, trees, graphs, and algorithmic thinking for programming
-                        interviews.</p>
-                    <div class="topic-stats">
-                        <span class="difficulty">Difficulty: Medium</span>
-                        <span class="questions-count">30 Questions</span>
-                    </div>
+            <div class="topic-card" onclick="selectTopic('data-structures')">
+                <div class="topic-icon">💻</div>
+                <h3 class="topic-title">Data Structures</h3>
+                <p class="topic-description">Master arrays, trees, graphs, and algorithmic thinking for programming
+                    interviews.</p>
+                <div class="topic-stats">
+                    <span class="difficulty">Difficulty: Medium</span>
+                    <span class="questions-count">30 Questions</span>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+</div>
 
-    <script>
-        function selectOption(option, isCorrect) {
-    // Remove previous selections from this question
-    const allOptions = option.parentElement.querySelectorAll('.option');
-    allOptions.forEach(opt => {
-        opt.classList.remove('selected', 'correct', 'incorrect');
-    });
-
-    // Mark the selected option
-    option.classList.add('selected');
-
-    // Show correct/incorrect after a brief delay
-    setTimeout(() => {
+<script>
+    function selectOption(option, isCorrect) {
+        // Remove previous selections from this question
+        const allOptions = option.parentElement.querySelectorAll('.option');
         allOptions.forEach(opt => {
-            // Check if this option was passed as correct (via onclick param)
-            const isOptionCorrect = opt.getAttribute("onclick").includes("true");
-            if (isOptionCorrect) {
-                opt.classList.add('correct');
-            } else if (opt.classList.contains('selected')) {
-                opt.classList.add('incorrect');
-            }
+            opt.classList.remove('selected', 'correct', 'incorrect');
         });
-    }, 500);
-}
+
+        // Mark the selected option
+        option.classList.add('selected');
+
+        // Show correct/incorrect after a brief delay
+        setTimeout(() => {
+            allOptions.forEach(opt => {
+                // Check if this option was passed as correct (via onclick param)
+                const isOptionCorrect = opt.getAttribute("onclick").includes("true");
+                if (isOptionCorrect) {
+                    opt.classList.add('correct');
+                } else if (opt.classList.contains('selected')) {
+                    opt.classList.add('incorrect');
+                }
+            });
+        }, 500);
+    }
 
 
-        function toggleExplanation(button) {
-            const explanation = button.nextElementSibling;
-            if (explanation.classList.contains('show')) {
-                explanation.classList.remove('show');
-                button.textContent = 'Show Explanation';
-            } else {
-                explanation.classList.add('show');
-                button.textContent = 'Hide Explanation';
-            }
+    function toggleExplanation(button) {
+        const explanation = button.nextElementSibling;
+        if (explanation.classList.contains('show')) {
+            explanation.classList.remove('show');
+            button.textContent = 'Show Explanation';
+        } else {
+            explanation.classList.add('show');
+            button.textContent = 'Hide Explanation';
+        }
+    }
+
+    function nextPage() {
+        alert('Loading next page with 5 more questions...');
+        // In a real application, this would load the next set of questions
+    }
+
+    function previousPage() {
+        alert('Going to previous page...');
+        // In a real application, this would load the previous set of questions
+    }
+
+    function selectTopic(topicId) {
+        alert(`Loading ${topicId.replace('-', ' ')} topic questions...`);
+        // In a real application, this would navigate to the selected topic
+    }
+
+    function toggleBookmark(button) {
+        button.classList.toggle('bookmarked');
+        const isBookmarked = button.classList.contains('bookmarked');
+
+        if (isBookmarked) {
+            button.title = 'Remove bookmark';
+            // Visual feedback
+            button.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 200);
+        } else {
+            button.title = 'Bookmark this question';
         }
 
-        function nextPage() {
-            alert('Loading next page with 5 more questions...');
-            // In a real application, this would load the next set of questions
+        // In a real application, this would save/remove bookmark to/from database
+        console.log(`Question ${isBookmarked ? 'bookmarked' : 'unbookmarked'}`);
+    }
+
+    function reportQuestion(button) {
+        if (button.classList.contains('reported')) {
+            alert('This question has already been reported.');
+            return;
         }
 
-        function previousPage() {
-            alert('Going to previous page...');
-            // In a real application, this would load the previous set of questions
+        const reason = prompt('Please specify the reason for reporting this question:');
+        if (reason && reason.trim()) {
+            button.classList.add('reported');
+            button.title = 'Question reported';
+
+            // Visual feedback
+            button.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 200);
+
+            alert('Thank you for your report. We will review this question.');
+            // In a real application, this would send the report to the server
+            console.log(`Question reported: ${reason}`);
+        }
+    }
+
+    // Chip functionality
+    document.addEventListener("DOMContentLoaded", () => {
+        const url = new URL(window.location.href);
+        const activeTag = url.searchParams.get('tag');
+
+        // Restore active chip on reload
+        if (activeTag) {
+            document.querySelectorAll('.chip').forEach(chip => {
+                let tagValue = chip.dataset.tag || chip.textContent.trim();
+                if (tagValue === activeTag) {
+                    chip.classList.add('active');
+                }
+            });
         }
 
-        function selectTopic(topicId) {
-            alert(`Loading ${topicId.replace('-', ' ')} topic questions...`);
-            // In a real application, this would navigate to the selected topic
-        }
-
-        function toggleBookmark(button) {
-            button.classList.toggle('bookmarked');
-            const isBookmarked = button.classList.contains('bookmarked');
-
-            if (isBookmarked) {
-                button.title = 'Remove bookmark';
-                // Visual feedback
-                button.style.transform = 'scale(1.2)';
-                setTimeout(() => {
-                    button.style.transform = '';
-                }, 200);
-            } else {
-                button.title = 'Bookmark this question';
-            }
-
-            // In a real application, this would save/remove bookmark to/from database
-            console.log(`Question ${isBookmarked ? 'bookmarked' : 'unbookmarked'}`);
-        }
-
-        function reportQuestion(button) {
-            if (button.classList.contains('reported')) {
-                alert('This question has already been reported.');
-                return;
-            }
-
-            const reason = prompt('Please specify the reason for reporting this question:');
-            if (reason && reason.trim()) {
-                button.classList.add('reported');
-                button.title = 'Question reported';
-
-                // Visual feedback
-                button.style.transform = 'scale(1.2)';
-                setTimeout(() => {
-                    button.style.transform = '';
-                }, 200);
-
-                alert('Thank you for your report. We will review this question.');
-                // In a real application, this would send the report to the server
-                console.log(`Question reported: ${reason}`);
-            }
-        }
-
-        // Chip functionality
+        // Handle chip clicks
         document.querySelectorAll('.chip').forEach(chip => {
             chip.addEventListener('click', function () {
-                document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-                this.classList.add('active');
-                // In a real application, this would filter questions by category
+                let tagValue = this.dataset.tag || this.textContent.trim();
+                const url = new URL(window.location.href);
+                url.searchParams.set('tag', tagValue);
+                window.location.href = url; // reload page with tag
             });
         });
-    </script>
+    });
+</script>
 
 <!-- <script src="/public/js/script.js" w-tid="311"></script> -->
 
