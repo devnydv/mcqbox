@@ -1,0 +1,6 @@
+# things on development
+1. report question buttons
+2. bookmark question.
+3. pagination(if required)
+4. recomandation below questions
+5. and more....
