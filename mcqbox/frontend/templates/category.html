@@ -4,10 +4,10 @@
 {% block head %}
 <title> MCQbox - Explore vast Categories </title>
 <meta property="og:title" content="MCQbox - Explore vast Categories">
-<meta property="og:url" content="/">
+<meta property="og:url" content="/category">
 <meta property="og:type" content="website">
 <meta name="description" content="Explore a wide range of subjects and categories for MCQ practice.">
-
+<link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/subject.css') }}" w-tid="13">
 {% endblock %}
 
 {% block content %}
@@ -17,14 +17,14 @@
 
 <section class="categories" id="categories">
     <div class="container">
-        <h2>Learning Categories</h2>
+        <h1>Learning Categories</h1>
         <div class="grid">
             {% for cat in category %}
             {%set string = cat.name.replace(" ", "-")%}
             <div class="card">
                 <a href="/category/{{string}}">
                     <div>
-                        <h3><span class="card-icon">📝</span>{{cat.name |title}}</h3>
+                        <h2><span class="card-icon">📝</span>{{cat.name |title}}</h2>
                         <p>{{cat.description}}</p>
                         <!-- <a href="" class="btn">Start Learning</a> -->
                         <button class="btn">Start Learning</button>

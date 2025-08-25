@@ -106,7 +106,7 @@ body {
     height: 70px;
 }
 
-.nav-brand h1 {
+.nav-brand span {
     font-family: 'Cal Sans', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
@@ -168,7 +168,7 @@ body {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 3.0rem;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     animation: fadeInUp 1s ease;
