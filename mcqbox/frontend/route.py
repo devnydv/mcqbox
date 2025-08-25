@@ -24,6 +24,9 @@ def subcategory(category_name):
     subcategories = category.subcategories if category else []
     if not subcategories:
         return render_template("subcate.html", cat = category_name, subcategories=None)
+    
+    # pass tag  for so that it remains selected in mcq page
+    
     return render_template("subcate.html", cat = category_name, subcategories=subcategories)    
 @app.route("/category/<category>/<subcat>")
 def mcq(category, subcat):
@@ -36,7 +39,9 @@ def mcq(category, subcat):
     subcat = subcat.replace('-', ' ')
     subcategory_id = Subcategory.query.filter_by(name=subcat, category_id=cate_id).first()
     subcat_id = subcategory_id.id if subcategory_id else None
-    question = Question.query.filter_by(subcategory_id=subcat_id).all()
+    #question = Question.query.filter_by(subcategory_id=subcat_id).all()
+    # limit to 50 questions only to make page load faster
+    question = Question.query.filter_by(subcategory_id=subcat_id).limit(50).all()
 
     # handle tag section 
     tag = request.args.get("tag")
