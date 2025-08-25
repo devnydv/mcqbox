@@ -7,7 +7,7 @@
 <meta property="og:url" content="/category">
 <meta property="og:type" content="website">
 <meta name="description" content="Explore a wide range of subjects and categories for MCQ practice.">
-<link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/subject.css') }}" w-tid="13">
+<!-- <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/subject.css') }}" w-tid="13"> -->
 {% endblock %}
 
 {% block content %}
@@ -17,7 +17,7 @@
 
 <section class="categories" id="categories">
     <div class="container">
-        <h1>Learning Categories</h1>
+        <h1 style="text-align: center;">Learning Categories</h1>
         <div class="grid">
             {% for cat in category %}
             {%set string = cat.name.replace(" ", "-")%}

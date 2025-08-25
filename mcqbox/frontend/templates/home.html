@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="{{ url_for('frontend.static', filename='asset/icon.webp') }}" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('frontend.static', filename='asset/icon.webp') }}">
     <link rel="apple-touch-icon" sizes="192x192" href="{{ url_for('frontend.static', filename='asset/icon.webp') }}">
+    <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/style.css') }}">
     {% block head %}
     {%endblock%}
 </head>
@@ -14,6 +15,6 @@
     {%endblock%}
 </body>
 <script src="{{ url_for('frontend.static', filename='js/nav.js') }}" w-tid="311"></script>
-<link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/style.css') }}">
+
 
 </html>
