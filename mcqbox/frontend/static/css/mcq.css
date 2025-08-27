@@ -39,8 +39,10 @@ body {
     scrollbar-color: #64b5f6 transparent;
     position: sticky;
     top: 70px;   /* adjust based on your header height */
-    background: #1a1a2e; /* give background so content below doesn't show */
+    background: rgba(15, 23, 42, 0.95); /* give background so content below doesn't show */
     z-index: 10; /* stays above other elements */
+    border-radius: 4px;
+    padding: 4px;
 }
 
 .chip-container::-webkit-scrollbar {

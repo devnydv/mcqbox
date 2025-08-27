@@ -57,7 +57,7 @@ def mcq(category, subcat):
     #get tag list 
     tags = Tag.query.filter_by(subcategory_id=subcat_id).all()
     #print
-    return render_template("mcq.html" , questions=question, category=category, subcat=subcat, id=id, tags=tags)  
+    return render_template("mcq.html" , questions=question, category=category, subcat=subcat, id=id, tags=tags, tag = tag)  
 
 
 

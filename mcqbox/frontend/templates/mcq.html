@@ -16,6 +16,7 @@
 
 
 <div class="container">
+    
     <div class="chip-container">
         {% for tag in tags %}
 
@@ -27,13 +28,14 @@
         
 
     </div>
+    <h1 style="text-align: center; margin: 1rem;">{{subcat}}- {{tag}} MCQ with Answers</h1>
     {% for question in questions%}
     <div class="mcq-card">
 
 
 
         <div class="question-number">Question {{ loop.index }}</div>
-        <div class="question">{{question.question_text}}</div>
+        <h2 class="question">{{question.question_text}}</h2>
         <div class="options">
             {%for opt in question.options%}
             <div class="option" onclick="selectOption(this, {{opt.is_correct |lower}})">{{ loop.index }}) {{opt.text}}</div>
