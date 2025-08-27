@@ -41,13 +41,16 @@ def mcq(category, subcat):
     subcat_id = subcategory_id.id if subcategory_id else None
     #question = Question.query.filter_by(subcategory_id=subcat_id).all()
     # limit to 50 questions only to make page load faster
-    question = Question.query.filter_by(subcategory_id=subcat_id).limit(50).all()
+    #question = Question.query.filter_by(subcategory_id=subcat_id).limit(50).all()
 
     # handle tag section 
     tag = request.args.get("tag")
     if tag:
         tag = tag.replace('-', ' ')
-        
+        question = Question.query.join(Tag).filter(Tag.name == tag).all()
+    else:
+        tag = Tag.query.filter_by(subcategory_id=subcat_id).first()
+        tag = tag.name if tag else None
         question = Question.query.join(Tag).filter(Tag.name == tag).all()
     #question = question[0] if question else None
     

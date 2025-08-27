@@ -277,22 +277,32 @@
     }
 
     // Chip functionality
-    document.addEventListener("DOMContentLoaded", () => {
-        const url = new URL(window.location.href);
-        const activeTag = url.searchParams.get('tag');
+document.addEventListener("DOMContentLoaded", () => {
+    const url = new URL(window.location.href);
+    const activeTag = url.searchParams.get('tag');
 
+    const chips = document.querySelectorAll('.chip');
+
+    if (chips.length > 0) {
         // Restore active chip on reload
         if (activeTag) {
-            document.querySelectorAll('.chip').forEach(chip => {
+            chips.forEach(chip => {
                 let tagValue = chip.dataset.tag || chip.textContent.trim();
                 if (tagValue === activeTag) {
                     chip.classList.add('active');
                 }
             });
+        } else {
+            // No tag param → make the first chip active by default
+            chips[0].classList.add('active');
+            // Also update the URL with the first chip's tag
+            let firstTagValue = chips[0].dataset.tag || chips[0].textContent.trim();
+            url.searchParams.set('tag', firstTagValue);
+            window.history.replaceState({}, '', url); // update URL without reload
         }
 
         // Handle chip clicks
-        document.querySelectorAll('.chip').forEach(chip => {
+        chips.forEach(chip => {
             chip.addEventListener('click', function () {
                 let tagValue = this.dataset.tag || this.textContent.trim();
                 const url = new URL(window.location.href);
@@ -300,7 +310,8 @@
                 window.location.href = url; // reload page with tag
             });
         });
-    });
+    }
+});
 </script>
 
 <!-- <script src="/public/js/script.js" w-tid="311"></script> -->
