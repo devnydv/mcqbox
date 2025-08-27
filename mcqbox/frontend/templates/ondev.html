@@ -1,0 +1,27 @@
+
+{% from "micro/nav.html" import nav %}
+{% extends "home.html" %}
+
+{% block head %}
+    <title>Error page </title>
+    <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/style.css') }}">
+    
+    <meta name="description" content="This is a basic error page. Where user will be redirected if any error occurs.">
+    
+{% endblock %}
+
+{% block content %}
+
+    <!-- include nav  -->
+  {{ nav() }}
+    <!-- Hero Section -->
+     
+    <section class="hero" id="home">
+
+        <div class="container">
+            <h1>Oops! Something went wrong.</h1>
+            <p>We're sorry, but an unexpected error has occurred. The page you are trying to reach is on development or not available. We are working to improve our site and soon will solve the issue.</p>
+            <p style="font-size:xx-large;">Keep Learning Keep Growing...</p>
+        </div>
+    </section>
+{% endblock %}

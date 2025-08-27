@@ -59,6 +59,7 @@ def mcq(category, subcat):
     #print
     return render_template("mcq.html" , questions=question, category=category, subcat=subcat, id=id, tags=tags, tag = tag)  
 
-
-
+@app.route("/error")
+def erroe():
+    return render_template("ondev.html")
 

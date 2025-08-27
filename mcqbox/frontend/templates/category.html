@@ -2,7 +2,7 @@
 {% extends "home.html" %}
 
 {% block head %}
-<title> MCQbox - Explore vast Categories </title>
+<title> MCQbox - Explore vast Categories of topic</title>
 <meta property="og:title" content="MCQbox - Explore vast Categories">
 <meta property="og:url" content="/category">
 <meta property="og:type" content="website">
@@ -17,7 +17,7 @@
 
 <section class="categories" id="categories">
     <div class="container">
-        <h1 style="text-align: center;">Learning Categories</h1>
+        <h1 style="text-align: center; margin: 1rem 0;">Explore Learning Categories</h1>
         <div class="grid">
             {% for cat in category %}
             {%set string = cat.name.replace(" ", "-")%}
