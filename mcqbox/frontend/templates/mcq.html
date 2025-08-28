@@ -2,7 +2,8 @@
 {% extends "home.html" %}
 
 {% block head %}
-<title>MCQ Practice</title>
+<title>{{subcat}}- {{tag}} MCQ with Answers</title>
+<meta name="description" content="Practice {{subcat}} multiple-choice questions with answers and explanations. Enhance your understanding of {{tag}} concepts through interactive quizzes.">
 <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/mcq.css') }}">
 <!-- <link rel="stylesheet" href="/public/css/ctxmenu.css"> -->
 <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/nav.css') }}">
