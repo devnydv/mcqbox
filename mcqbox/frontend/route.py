@@ -63,3 +63,33 @@ def mcq(category, subcat):
 def erroe():
     return render_template("ondev.html")
 
+
+import json
+   
+
+
+@app.route('/lol')
+def script():
+    def import_questions_from_json(json_file):
+        """Read a JSON file and insert questions into the database"""
+        with open(json_file, "r", encoding="utf-8") as f:
+            questions = json.load(f)
+
+        for q in questions:
+            question = Question(
+                question_text=q["question_text"],
+                subcategory_id=q["subcategory_id"],
+                tag_id=q.get("tag_id"),  # can be None
+                explanation=q.get("explanation"),
+                options=q["options"],  # JSON column accepts dict/list
+                category_id=q["category_id"]
+            )
+            db.session.add(question)
+
+        db.session.commit()
+        print(f"✅ Imported {len(questions)} questions successfully!")
+
+
+
+    import_questions_from_json("questions.json")
+    return 'lol'
