@@ -5,7 +5,7 @@
 {% block head %}
 
 
-<title> MCQbox -Select Subject for {{cat}} </title>
+<title> MCQbox -Select Subject for {{cat }} </title>
 <meta property="og:title" content="MCQbox - Select Subject for {{cat}}">
 <meta property="og:url" content="/">
 <meta property="og:type" content="website">
@@ -43,7 +43,7 @@
           <span w-tid="53">←</span> Back to Classes
         </button> -->
 
-      <h1 class="subjects-title" w-tid="55">Select Subject for <span id="class-name" w-tid="57">{{cat}}</span></h1>
+      <h1 class="subjects-title" w-tid="55">Select Subject for <span id="class-name" w-tid="57">{{cat |title}}</span></h1>
       <p class="subjects-subtitle" w-tid="59">Choose a subject to start practicing MCQs</p>
     </div>
     {%if subcategories is none%}
@@ -59,7 +59,7 @@
       {%for subcat in subcategories %}
 
 
-      <a href="/category/{{cat|replace(' ', '-')}}/{{subcat['name']|replace(' ', '-')}}">
+      <a href="/category/{{cat|replace(' ', '-')}}/{{subcat['name']|replace(' ', '-') |lower}}">
         <div class="subject-card" style="animation-delay: 0s;">
           <div class="subject-icon">📝</div>
           <h3 class="subject-name">{{subcat['name']|title}}</h3>

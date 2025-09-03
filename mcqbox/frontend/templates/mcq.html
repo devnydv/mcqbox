@@ -2,7 +2,7 @@
 {% extends "home.html" %}
 
 {% block head %}
-<title>{{subcat}}- {{tag}} MCQ with Answers</title>
+<title>{{subcat | title}}- {{tag | title}} MCQ with Answers</title>
 <meta name="description" content="Practice {{subcat}} multiple-choice questions with answers and explanations. Enhance your understanding of {{tag}} concepts through interactive quizzes.">
 <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/mcq.css') }}">
 <!-- <link rel="stylesheet" href="/public/css/ctxmenu.css"> -->
@@ -21,7 +21,7 @@
     <div class="chip-container">
         {% for tag in tags %}
 
-        <div class="chip">{{tag.name}}</div>
+        <div class="chip">{{tag.name |title}}</div>
         {%endfor%}
         <!-- <div class="chip">Physics</div>
         <div class="chip">Chemistry</div>
@@ -29,7 +29,7 @@
         
 
     </div>
-    <h1 style="text-align: center; margin: 1rem;">{{subcat}}- {{tag}} MCQ with Answers</h1>
+    <h1 style="text-align: center; margin: 1rem;">{{subcat | title}}- {{tag | title}} MCQ with Answers</h1>
     {% for question in questions%}
     <div class="mcq-card">
 
@@ -300,6 +300,9 @@ document.addEventListener("DOMContentLoaded", () => {
             chips[0].classList.add('active');
             // Also update the URL with the first chip's tag
             let firstTagValue = chips[0].dataset.tag || chips[0].textContent.trim();
+            firstTagValue = firstTagValue.toLowerCase();
+            firstTagValue = firstTagValue.replace(' ', '-');
+            console.log(firstTagValue);
             url.searchParams.set('tag', firstTagValue);
             window.history.replaceState({}, '', url); // update URL without reload
         }
@@ -308,6 +311,8 @@ document.addEventListener("DOMContentLoaded", () => {
         chips.forEach(chip => {
             chip.addEventListener('click', function () {
                 let tagValue = this.dataset.tag || this.textContent.trim();
+                tagValue = tagValue.toLowerCase();
+                tagValue = tagValue.replace(/ /g, '-');
                 const url = new URL(window.location.href);
                 url.searchParams.set('tag', tagValue);
                 window.location.href = url; // reload page with tag
