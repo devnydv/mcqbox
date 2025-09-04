@@ -20,8 +20,9 @@
     
     <div class="chip-container">
         {% for tag in tags %}
-
+        <a href="/category/{{category | replace(' ', '-')}}/{{subcat | replace(' ', '-')}}?tag={{tag.name | lower | replace(' ', '-')}}" style="text-decoration: none;">
         <div class="chip">{{tag.name |title}}</div>
+        </a>
         {%endfor%}
         <!-- <div class="chip">Physics</div>
         <div class="chip">Chemistry</div>
@@ -39,6 +40,7 @@
         <h2 class="question">{{question.question_text}}</h2>
         <div class="options">
             {%for opt in question.options%}
+            
             <div class="option" onclick="selectOption(this, {{opt.is_correct |lower}})">{{ loop.index }}) {{opt.text}}</div>
 
             {% endfor %}
@@ -316,7 +318,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 tagValue = tagValue.replace(/ /g, '-');
                 const url = new URL(window.location.href);
                 url.searchParams.set('tag', tagValue);
-                window.location.href = url; // reload page with tag
+                //window.location.href = url; // reload page with tag
             });
         });
     }
