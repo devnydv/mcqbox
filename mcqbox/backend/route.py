@@ -370,8 +370,8 @@ def questions():
     
     # Apply filters only if they exist
     questions_list = Question.query.filter(*filters).all()
-    for question in questions_list:
-        print(question.subcategory.name)
+    #for question in questions_list:
+        #print(question.subcategory.name)
     #questions_list = data_store.get_questions_filtered(category_id, subcategory_id, search)
     
     return render_template('questions.html', 

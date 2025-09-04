@@ -1,94 +1,106 @@
 [
   {
-    "question_text": "Which of these is a natural object mentioned in the poem?",
+    "question_text": "Which word from the story means 'soft and gentle'?",
     "subcategory_id": 1,
-    "tag_id": 3,
-    "explanation": "Clouds are natural objects mentioned in the poem.",
+    "tag_id": 4,
+    "explanation": "The word 'tender' means soft and gentle.",
     "options": [
-      { "text": "Iron bridge", "is_correct": false },
-      { "text": "Stone bridge", "is_correct": false },
-      { "text": "Clouds", "is_correct": true },
-      { "text": "Wooden bridge", "is_correct": false }
+      { "text": "Distressed", "is_correct": false },
+      { "text": "Tender", "is_correct": true },
+      { "text": "Perch", "is_correct": false },
+      { "text": "Sighed", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "Which of these is a human-made thing mentioned in the poem?",
+    "question_text": "Why did the parrot ask the merchant to send greetings instead of asking for freedom?",
     "subcategory_id": 1,
-    "tag_id": 3,
-    "explanation": "Bridges are human-made things mentioned in the poem.",
+    "tag_id": 4,
+    "explanation": "The parrot was wise and did not ask directly; it trusted its friends to show a way to escape.",
     "options": [
-      { "text": "Clouds", "is_correct": false },
-      { "text": "Rainbow", "is_correct": false },
-      { "text": "Bridges", "is_correct": true },
-      { "text": "Sky", "is_correct": false }
+      { "text": "It wanted fruits instead", "is_correct": false },
+      { "text": "It trusted its friends to help", "is_correct": true },
+      { "text": "It liked the cage", "is_correct": false },
+      { "text": "It feared the merchant", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "Which word from the poem rhymes with 'sky'?",
+    "question_text": "Why did the merchant sigh before placing the parrot on the windowsill?",
     "subcategory_id": 1,
-    "tag_id": 3,
-    "explanation": "The word 'sky' rhymes with 'high'.",
+    "tag_id": 4,
+    "explanation": "He believed his beloved pet had died, which made him sigh with sadness.",
     "options": [
-      { "text": "High", "is_correct": true },
-      { "text": "These", "is_correct": false },
-      { "text": "Trees", "is_correct": false },
-      { "text": "Bow", "is_correct": false }
+      { "text": "Because the cage was heavy", "is_correct": false },
+      { "text": "Because he thought the parrot was dead", "is_correct": true },
+      { "text": "Because he wanted a new parrot", "is_correct": false },
+      { "text": "Because the parrot sang loudly", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "What is the easy way to remember rainbow colours in order?",
+    "question_text": "Which collective noun is correct: A ______ of geese?",
     "subcategory_id": 1,
-    "tag_id": 3,
-    "explanation": "The acronym VIBGYOR is an easy way to remember rainbow colours.",
+    "tag_id": 4,
+    "explanation": "The correct phrase is 'A gaggle of geese'.",
     "options": [
-      { "text": "ROYGBIV", "is_correct": false },
-      { "text": "VIBGYOR", "is_correct": true },
-      { "text": "RGB", "is_correct": false },
-      { "text": "CMYK", "is_correct": false }
+      { "text": "Herd", "is_correct": false },
+      { "text": "Pack", "is_correct": false },
+      { "text": "Gaggle", "is_correct": true },
+      { "text": "Army", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "What is the first colour of the rainbow as per VIBGYOR?",
+    "question_text": "Which collective noun is correct: A ______ of cattle?",
     "subcategory_id": 1,
-    "tag_id": 3,
-    "explanation": "The first colour of the rainbow in VIBGYOR is Violet.",
+    "tag_id": 4,
+    "explanation": "The correct phrase is 'A herd of cattle'.",
     "options": [
-      { "text": "Red", "is_correct": false },
-      { "text": "Blue", "is_correct": false },
-      { "text": "Violet", "is_correct": true },
-      { "text": "Orange", "is_correct": false }
+      { "text": "Swarm", "is_correct": false },
+      { "text": "Herd", "is_correct": true },
+      { "text": "Bouquet", "is_correct": false },
+      { "text": "Pack", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "What happens when sunlight passes through raindrops?",
+    "question_text": "What does the golden cage in the story represent?",
     "subcategory_id": 1,
-    "tag_id": 3,
-    "explanation": "It splits into seven colours forming a rainbow.",
+    "tag_id": 4,
+    "explanation": "The golden cage represents luxury without freedom.",
     "options": [
-      { "text": "It becomes invisible", "is_correct": false },
-      { "text": "It creates shadows", "is_correct": false },
-      { "text": "It splits into seven colours", "is_correct": true },
-      { "text": "It makes the clouds disappear", "is_correct": false }
+      { "text": "True happiness", "is_correct": false },
+      { "text": "Luxury without freedom", "is_correct": true },
+      { "text": "The merchant’s wealth only", "is_correct": false },
+      { "text": "A simple birdhouse", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "What do clouds do in the sky according to the poem?",
+    "question_text": "What is more valuable according to the story?",
     "subcategory_id": 1,
-    "tag_id": 3,
-    "explanation": "According to the poem, clouds sail across the sky.",
+    "tag_id": 4,
+    "explanation": "The story shows that freedom is more valuable than luxury.",
     "options": [
-      { "text": "They sit still", "is_correct": false },
-      { "text": "They sail", "is_correct": true },
-      { "text": "They shine", "is_correct": false },
-      { "text": "They hide", "is_correct": false }
+      { "text": "Gold", "is_correct": false },
+      { "text": "Luxury", "is_correct": false },
+      { "text": "Freedom", "is_correct": true },
+      { "text": "Cages", "is_correct": false }
+    ],
+    "category_id": 1
+  },
+  {
+    "question_text": "What is the central moral of 'The Wise Parrot'?",
+    "subcategory_id": 1,
+    "tag_id": 4,
+    "explanation": "The central moral is that wisdom and intelligence can bring freedom.",
+    "options": [
+      { "text": "Cages are comfortable", "is_correct": false },
+      { "text": "Wisdom leads to freedom", "is_correct": true },
+      { "text": "Merchants love parrots", "is_correct": false },
+      { "text": "Friends are unhelpful", "is_correct": false }
     ],
     "category_id": 1
   }
-
 ]
