@@ -1,6 +1,8 @@
 from flask import Flask
 from mcqbox.model import db
 
+
+
 app = Flask(__name__)
 
 app.secret_key ="doNotTryToSuck"
@@ -11,3 +13,6 @@ db.init_app(app)
 
 with app.app_context():
     db.create_all()
+
+
+from mcqbox import route

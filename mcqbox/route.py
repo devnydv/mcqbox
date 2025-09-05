@@ -1,7 +1,7 @@
 from mcqbox import app
 
-from flask import render_template
+from flask import render_template, send_from_directory
 
-@app.route('/lol')
-def index():
-    return 'lol'
+@app.route('/robots.txt')
+def robots_txt():
+    return send_from_directory(app.root_path, 'robots.txt')
