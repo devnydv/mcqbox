@@ -1,105 +1,54 @@
 [
   {
-    "question_text": "Which word from the story means 'soft and gentle'?",
+    "question_text": "Which word rhymes with 'croak'?",
     "subcategory_id": 1,
-    "tag_id": 4,
-    "explanation": "The word 'tender' means soft and gentle.",
+    "tag_id": 5,
+    "explanation": "The word 'cloak' rhymes with 'croak'.",
     "options": [
-      { "text": "Distressed", "is_correct": false },
-      { "text": "Tender", "is_correct": true },
-      { "text": "Perch", "is_correct": false },
-      { "text": "Sighed", "is_correct": false }
+      { "text": "Book", "is_correct": false },
+      { "text": "Cloak", "is_correct": true },
+      { "text": "Cook", "is_correct": false },
+      { "text": "Block", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "Why did the parrot ask the merchant to send greetings instead of asking for freedom?",
+    "question_text": "Which word rhymes with 'rain'?",
     "subcategory_id": 1,
-    "tag_id": 4,
-    "explanation": "The parrot was wise and did not ask directly; it trusted its friends to show a way to escape.",
+    "tag_id": 5,
+    "explanation": "The word 'pain' rhymes with 'rain'.",
     "options": [
-      { "text": "It wanted fruits instead", "is_correct": false },
-      { "text": "It trusted its friends to help", "is_correct": true },
-      { "text": "It liked the cage", "is_correct": false },
-      { "text": "It feared the merchant", "is_correct": false }
+      { "text": "Plain", "is_correct": false },
+      { "text": "Pain", "is_correct": true },
+      { "text": "Chain", "is_correct": false },
+      { "text": "Main", "is_correct": false }
+    ],
+    "category_id": 1
+  },
+  
+  {
+    "question_text": "What does the word 'Amphibian' mean?",
+    "subcategory_id": 1,
+    "tag_id": 5,
+    "explanation": "Amphibian means an animal that can live both on land and in water.",
+    "options": [
+      { "text": "Animal that lives only in water", "is_correct": false },
+      { "text": "Animal that lives only on land", "is_correct": false },
+      { "text": "Animal that can live both on land and in water", "is_correct": true },
+      { "text": "Animal that can fly", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "Why did the merchant sigh before placing the parrot on the windowsill?",
+    "question_text": "What does 'hibernation' mean?",
     "subcategory_id": 1,
-    "tag_id": 4,
-    "explanation": "He believed his beloved pet had died, which made him sigh with sadness.",
+    "tag_id": 5,
+    "explanation": "Hibernation means a long sleep that frogs take during winter.",
     "options": [
-      { "text": "Because the cage was heavy", "is_correct": false },
-      { "text": "Because he thought the parrot was dead", "is_correct": true },
-      { "text": "Because he wanted a new parrot", "is_correct": false },
-      { "text": "Because the parrot sang loudly", "is_correct": false }
-    ],
-    "category_id": 1
-  },
-  {
-    "question_text": "Which collective noun is correct: A ______ of geese?",
-    "subcategory_id": 1,
-    "tag_id": 4,
-    "explanation": "The correct phrase is 'A gaggle of geese'.",
-    "options": [
-      { "text": "Herd", "is_correct": false },
-      { "text": "Pack", "is_correct": false },
-      { "text": "Gaggle", "is_correct": true },
-      { "text": "Army", "is_correct": false }
-    ],
-    "category_id": 1
-  },
-  {
-    "question_text": "Which collective noun is correct: A ______ of cattle?",
-    "subcategory_id": 1,
-    "tag_id": 4,
-    "explanation": "The correct phrase is 'A herd of cattle'.",
-    "options": [
-      { "text": "Swarm", "is_correct": false },
-      { "text": "Herd", "is_correct": true },
-      { "text": "Bouquet", "is_correct": false },
-      { "text": "Pack", "is_correct": false }
-    ],
-    "category_id": 1
-  },
-  {
-    "question_text": "What does the golden cage in the story represent?",
-    "subcategory_id": 1,
-    "tag_id": 4,
-    "explanation": "The golden cage represents luxury without freedom.",
-    "options": [
-      { "text": "True happiness", "is_correct": false },
-      { "text": "Luxury without freedom", "is_correct": true },
-      { "text": "The merchant’s wealth only", "is_correct": false },
-      { "text": "A simple birdhouse", "is_correct": false }
-    ],
-    "category_id": 1
-  },
-  {
-    "question_text": "What is more valuable according to the story?",
-    "subcategory_id": 1,
-    "tag_id": 4,
-    "explanation": "The story shows that freedom is more valuable than luxury.",
-    "options": [
-      { "text": "Gold", "is_correct": false },
-      { "text": "Luxury", "is_correct": false },
-      { "text": "Freedom", "is_correct": true },
-      { "text": "Cages", "is_correct": false }
-    ],
-    "category_id": 1
-  },
-  {
-    "question_text": "What is the central moral of 'The Wise Parrot'?",
-    "subcategory_id": 1,
-    "tag_id": 4,
-    "explanation": "The central moral is that wisdom and intelligence can bring freedom.",
-    "options": [
-      { "text": "Cages are comfortable", "is_correct": false },
-      { "text": "Wisdom leads to freedom", "is_correct": true },
-      { "text": "Merchants love parrots", "is_correct": false },
-      { "text": "Friends are unhelpful", "is_correct": false }
+      { "text": "Running very fast", "is_correct": false },
+      { "text": "Long sleep during winter", "is_correct": true },
+      { "text": "Jumping in rain", "is_correct": false },
+      { "text": "Singing loudly", "is_correct": false }
     ],
     "category_id": 1
   }
