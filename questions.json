@@ -1,55 +1,132 @@
 [
   {
-    "question_text": "Which word rhymes with 'croak'?",
-    "subcategory_id": 1,
-    "tag_id": 5,
-    "explanation": "The word 'cloak' rhymes with 'croak'.",
+    "question_text": "What funny idea did Rama Natha believe in?",
+    "subcategory_id": 2,
+    "tag_id": 6,
+    "explanation": "Rama Natha believed there was a magic potion that could turn any object into gold.",
     "options": [
-      { "text": "Book", "is_correct": false },
-      { "text": "Cloak", "is_correct": true },
-      { "text": "Cook", "is_correct": false },
-      { "text": "Block", "is_correct": false }
+      { "text": "A magic potion could turn objects into gold", "is_correct": true },
+      { "text": "Bananas could talk", "is_correct": false },
+      { "text": "Trees could fly", "is_correct": false },
+      { "text": "Rain could become jewels", "is_correct": false }
     ],
-    "category_id": 1
+    "category_id": 2
   },
   {
-    "question_text": "Which word rhymes with 'rain'?",
-    "subcategory_id": 1,
-    "tag_id": 5,
-    "explanation": "The word 'pain' rhymes with 'rain'.",
+    "question_text": "What did the sage Mahipati tell Rama Natha to collect?",
+    "subcategory_id": 2,
+    "tag_id": 6,
+    "explanation": "The sage told Rama Natha to collect five litres of dew from banana leaves.",
     "options": [
-      { "text": "Plain", "is_correct": false },
-      { "text": "Pain", "is_correct": true },
-      { "text": "Chain", "is_correct": false },
-      { "text": "Main", "is_correct": false }
+      { "text": "Banana fruits", "is_correct": false },
+      { "text": "Five litres of dew", "is_correct": true },
+      { "text": "Copper vessels", "is_correct": false },
+      { "text": "Stacks of gold coins", "is_correct": false }
     ],
-    "category_id": 1
-  },
-  
-  {
-    "question_text": "What does the word 'Amphibian' mean?",
-    "subcategory_id": 1,
-    "tag_id": 5,
-    "explanation": "Amphibian means an animal that can live both on land and in water.",
-    "options": [
-      { "text": "Animal that lives only in water", "is_correct": false },
-      { "text": "Animal that lives only on land", "is_correct": false },
-      { "text": "Animal that can live both on land and in water", "is_correct": true },
-      { "text": "Animal that can fly", "is_correct": false }
-    ],
-    "category_id": 1
+    "category_id": 2
   },
   {
-    "question_text": "What does 'hibernation' mean?",
-    "subcategory_id": 1,
-    "tag_id": 5,
-    "explanation": "Hibernation means a long sleep that frogs take during winter.",
+    "question_text": "Why was Rama Natha worried after hearing the sage’s instructions?",
+    "subcategory_id": 2,
+    "tag_id": 6,
+    "explanation": "He worried that winter lasted only a few months, so collecting five litres of dew would take years.",
     "options": [
-      { "text": "Running very fast", "is_correct": false },
-      { "text": "Long sleep during winter", "is_correct": true },
-      { "text": "Jumping in rain", "is_correct": false },
-      { "text": "Singing loudly", "is_correct": false }
+      { "text": "He had no land", "is_correct": false },
+      { "text": "He thought dew would take too long to collect", "is_correct": true },
+      { "text": "He did not believe the sage", "is_correct": false },
+      { "text": "He disliked bananas", "is_correct": false }
     ],
-    "category_id": 1
+    "category_id": 2
+  },
+  {
+    "question_text": "Who helped Rama Natha sell bananas in the market?",
+    "subcategory_id": 2,
+    "tag_id": 6,
+    "explanation": "His wife, Madhumati, sold the bananas in the market and earned money.",
+    "options": [
+      { "text": "The sage", "is_correct": false },
+      { "text": "His wife, Madhumati", "is_correct": true },
+      { "text": "The villagers", "is_correct": false },
+      { "text": "His father", "is_correct": false }
+    ],
+    "category_id": 2
+  },
+  {
+    "question_text": "What did Rama Natha finally take to the sage after six years?",
+    "subcategory_id": 2,
+    "tag_id": 6,
+    "explanation": "After six years of work, Rama Natha collected five litres of dew and took it to the sage.",
+    "options": [
+      { "text": "Banana fruits", "is_correct": false },
+      { "text": "Five litres of dew", "is_correct": true },
+      { "text": "Stacks of gold", "is_correct": false },
+      { "text": "A magic book", "is_correct": false }
+    ],
+    "category_id": 2
+  },
+  {
+    "question_text": "What happened when Rama Natha sprinkled the potion on a copper vessel?",
+    "subcategory_id": 2,
+    "tag_id": 6,
+    "explanation": "Nothing happened to the copper vessel, and Rama Natha felt cheated.",
+    "options": [
+      { "text": "It turned to gold", "is_correct": false },
+      { "text": "It broke into pieces", "is_correct": false },
+      { "text": "Nothing happened", "is_correct": true },
+      { "text": "It disappeared", "is_correct": false }
+    ],
+    "category_id": 2
+  },
+  {
+    "question_text": "Who brought a big box filled with gold coins to show Rama Natha?",
+    "subcategory_id": 2,
+    "tag_id": 6,
+    "explanation": "Madhumati brought a big box of gold coins that she had earned from selling bananas.",
+    "options": [
+      { "text": "The sage", "is_correct": false },
+      { "text": "Madhumati", "is_correct": true },
+      { "text": "The villagers", "is_correct": false },
+      { "text": "Rama Natha", "is_correct": false }
+    ],
+    "category_id": 2
+  },
+  {
+    "question_text": "What lesson did the sage want Rama Natha to learn?",
+    "subcategory_id": 2,
+    "tag_id": 6,
+    "explanation": "The sage wanted Rama Natha to understand that wealth comes from hard work, not magic.",
+    "options": [
+      { "text": "Magic is real", "is_correct": false },
+      { "text": "Money grows on trees", "is_correct": false },
+      { "text": "Hard work creates wealth", "is_correct": true },
+      { "text": "Dew is precious", "is_correct": false }
+    ],
+    "category_id": 2
+  },
+  {
+    "question_text": "What did Rama Natha do after learning the truth from the sage?",
+    "subcategory_id": 2,
+    "tag_id": 6,
+    "explanation": "He understood the wisdom of the sage’s words and worked harder on his plantation.",
+    "options": [
+      { "text": "He stopped farming", "is_correct": false },
+      { "text": "He worked harder on his plantation", "is_correct": true },
+      { "text": "He left his village", "is_correct": false },
+      { "text": "He searched for another sage", "is_correct": false }
+    ],
+    "category_id": 2
+  },
+  {
+    "question_text": "What is the moral of 'A Bottle of Dew'?",
+    "subcategory_id": 2,
+    "tag_id": 6,
+    "explanation": "The story teaches that true wealth and success come from hard work, not shortcuts or magic.",
+    "options": [
+      { "text": "Cheating brings success", "is_correct": false },
+      { "text": "Hard work brings real wealth", "is_correct": true },
+      { "text": "Magic is stronger than work", "is_correct": false },
+      { "text": "Wealth comes only from luck", "is_correct": false }
+    ],
+    "category_id": 2
   }
 ]
