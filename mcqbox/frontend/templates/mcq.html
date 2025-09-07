@@ -9,6 +9,42 @@
 <!-- <link rel="stylesheet" href="/public/css/ctxmenu.css"> -->
 <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/nav.css') }}">
 <!-- <link rel="stylesheet" href="/public/css/nav.css"> -->
+     <script type="application/ld+json">
+    {
+     "@context": "https://schema.org",
+     "@type": "BreadcrumbList",
+     "itemListElement":
+     [
+      {
+       "@type": "ListItem",
+       "position": 1,
+       "item":
+       {
+        "@id": "https://example.com/category",
+        "name": "Category"
+        }
+      },
+      {
+       "@type": "ListItem",
+      "position": 2,
+      "item":
+       {
+         "@id": "https://example.com/category/{{category | replace(' ', '-')}}",
+         "name": "{{category | replace(' ', '-')}}"
+       }
+      },
+      {
+       "@type": "ListItem",
+      "position": 3,
+      "item":
+       {
+         "@id": "https://example.com/category/{{category | replace(' ', '-')}}/{{subcat | replace(' ', '-')}}",
+         "name": "{{subcat | replace(' ', '-')}}"
+       }
+      }
+     ]
+    }
+    </script>
 {% endblock %}
 
 {% block content %}
