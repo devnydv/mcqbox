@@ -3,7 +3,8 @@
 
 {% block head %}
 <title>{{subcat | title}}- {{tag | title}} MCQ with Answers</title>
-<meta name="description" content="Practice {{subcat}} multiple-choice questions with answers and explanations. Enhance your understanding of {{tag}} concepts through interactive quizzes.">
+<meta name="description"
+    content="Practice {{subcat}} multiple-choice questions with answers and explanations. Enhance your understanding of {{tag}} concepts through interactive quizzes.">
 <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/mcq.css') }}">
 <!-- <link rel="stylesheet" href="/public/css/ctxmenu.css"> -->
 <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/nav.css') }}">
@@ -17,17 +18,18 @@
 
 
 <div class="container">
-    
+
     <div class="chip-container">
         {% for tag in tags %}
-        <a href="/category/{{category | replace(' ', '-')}}/{{subcat | replace(' ', '-')}}?tag={{tag.name | lower | replace(' ', '-')}}" style="text-decoration: none;">
-        <div class="chip">{{tag.name |title}}</div>
+        <a href="/category/{{category | replace(' ', '-')}}/{{subcat | replace(' ', '-')}}?tag={{tag.name | lower | replace(' ', '-')}}"
+            style="text-decoration: none;">
+            <div class="chip">{{tag.name |title}}</div>
         </a>
         {%endfor%}
         <!-- <div class="chip">Physics</div>
         <div class="chip">Chemistry</div>
         <div class="chip">Biology</div> -->
-        
+
 
     </div>
     <h1 style="text-align: center; margin: 1rem;">{{subcat | title}}- {{tag | title}} MCQ with Answers</h1>
@@ -38,18 +40,23 @@
 
         <div class="question-number">Question {{ loop.index }}</div>
         <h2 class="question">{{question.question_text}}</h2>
-        <div class="options">
-            {%for opt in question.options%}
-            
-            <div class="option" onclick="selectOption(this, {{opt.is_correct |lower}})">{{ loop.index }}) {{opt.text}}</div>
+        <ul style="list-style-type: none;">
+            <div class="options">
 
-            {% endfor %}
-            <!-- <div class="option" onclick="selectOption(this, false)">A) 3.12</div>
+                {%for opt in question.options%}
+
+                <div class="option" onclick="selectOption(this, {{opt.is_correct |lower}})">
+                    <li>{{ loop.index }}) {{opt.text}}</li>
+                </div>
+
+                {% endfor %}
+
+                <!-- <div class="option" onclick="selectOption(this, false)">A) 3.12</div>
                 <div class="option" onclick="selectOption(this, true)">B) 3.14</div>
                 <div class="option" onclick="selectOption(this, false)">C) 3.16</div>
                 <div class="option" onclick="selectOption(this, false)">D) 3.18</div> -->
-        </div>
-
+            </div>
+        </ul>
 
         <div class="lol">
 
@@ -58,7 +65,7 @@
 
 
                 <div class="explanation">
-                    {{question.explanation}}
+                    <p>{{question.explanation}}</p>
                 </div>
             </div>
             <div class="action-buttons">
@@ -282,47 +289,47 @@
     }
 
     // Chip functionality
-document.addEventListener("DOMContentLoaded", () => {
-    const url = new URL(window.location.href);
-    const activeTag = url.searchParams.get('tag');
+    document.addEventListener("DOMContentLoaded", () => {
+        const url = new URL(window.location.href);
+        const activeTag = url.searchParams.get('tag');
 
-    const chips = document.querySelectorAll('.chip');
+        const chips = document.querySelectorAll('.chip');
 
-    if (chips.length > 0) {
-        // Restore active chip on reload
-        if (activeTag) {
+        if (chips.length > 0) {
+            // Restore active chip on reload
+            if (activeTag) {
+                chips.forEach(chip => {
+                    let tagValue = chip.dataset.tag || chip.textContent.trim();
+                    tagValue = tagValue.toLowerCase().replace(/ /g, '-');
+                    if (tagValue === activeTag) {
+                        chip.classList.add('active');
+                    }
+                });
+            } else {
+                // No tag param → make the first chip active by default
+                chips[0].classList.add('active');
+                // Also update the URL with the first chip's tag
+                let firstTagValue = chips[0].dataset.tag || chips[0].textContent.trim();
+                firstTagValue = firstTagValue.toLowerCase();
+                firstTagValue = firstTagValue.replace(/ /g, '-');
+
+                url.searchParams.set('tag', firstTagValue);
+                window.history.replaceState({}, '', url); // update URL without reload
+            }
+
+            // Handle chip clicks
             chips.forEach(chip => {
-                let tagValue = chip.dataset.tag || chip.textContent.trim();
-                tagValue = tagValue.toLowerCase().replace(/ /g, '-');
-                if (tagValue === activeTag) {
-                    chip.classList.add('active');
-                }
+                chip.addEventListener('click', function () {
+                    let tagValue = this.dataset.tag || this.textContent.trim();
+                    tagValue = tagValue.toLowerCase();
+                    tagValue = tagValue.replace(/ /g, '-');
+                    const url = new URL(window.location.href);
+                    url.searchParams.set('tag', tagValue);
+                    //window.location.href = url; // reload page with tag
+                });
             });
-        } else {
-            // No tag param → make the first chip active by default
-            chips[0].classList.add('active');
-            // Also update the URL with the first chip's tag
-            let firstTagValue = chips[0].dataset.tag || chips[0].textContent.trim();
-            firstTagValue = firstTagValue.toLowerCase();
-            firstTagValue = firstTagValue.replace(/ /g, '-');
-            
-            url.searchParams.set('tag', firstTagValue);
-            window.history.replaceState({}, '', url); // update URL without reload
         }
-
-        // Handle chip clicks
-        chips.forEach(chip => {
-            chip.addEventListener('click', function () {
-                let tagValue = this.dataset.tag || this.textContent.trim();
-                tagValue = tagValue.toLowerCase();
-                tagValue = tagValue.replace(/ /g, '-');
-                const url = new URL(window.location.href);
-                url.searchParams.set('tag', tagValue);
-                //window.location.href = url; // reload page with tag
-            });
-        });
-    }
-});
+    });
 </script>
 
 <!-- <script src="/public/js/script.js" w-tid="311"></script> -->

@@ -1,131 +1,131 @@
 [
   {
-    "question_text": "What funny idea did Rama Natha believe in?",
+    "question_text": "What did Rama Natha first ask the sage for?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "Rama Natha believed there was a magic potion that could turn any object into gold.",
+    "explanation": "Rama Natha asked the sage for a magic potion to make him rich.",
     "options": [
-      { "text": "A magic potion could turn objects into gold", "is_correct": true },
-      { "text": "Bananas could talk", "is_correct": false },
-      { "text": "Trees could fly", "is_correct": false },
-      { "text": "Rain could become jewels", "is_correct": false }
+      { "text": "A magic potion to become rich", "is_correct": true },
+      { "text": "A bag of gold coins", "is_correct": false },
+      { "text": "A new house", "is_correct": false },
+      { "text": "A horse and cart", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "What did the sage Mahipati tell Rama Natha to collect?",
+    "question_text": "Where did Rama Natha plant bananas?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "The sage told Rama Natha to collect five litres of dew from banana leaves.",
+    "explanation": "He planted bananas in his own garden to collect dew from their leaves.",
     "options": [
-      { "text": "Banana fruits", "is_correct": false },
-      { "text": "Five litres of dew", "is_correct": true },
-      { "text": "Copper vessels", "is_correct": false },
-      { "text": "Stacks of gold coins", "is_correct": false }
+      { "text": "On the riverbank", "is_correct": false },
+      { "text": "In his garden", "is_correct": true },
+      { "text": "In the forest", "is_correct": false },
+      { "text": "On the hills", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "Why was Rama Natha worried after hearing the sage’s instructions?",
+    "question_text": "How did Rama Natha collect dew every morning?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "He worried that winter lasted only a few months, so collecting five litres of dew would take years.",
+    "explanation": "He went to the banana plantation with a cloth and squeezed dew drops into a pot.",
     "options": [
-      { "text": "He had no land", "is_correct": false },
-      { "text": "He thought dew would take too long to collect", "is_correct": true },
-      { "text": "He did not believe the sage", "is_correct": false },
-      { "text": "He disliked bananas", "is_correct": false }
+      { "text": "By digging the soil", "is_correct": false },
+      { "text": "By squeezing dew from banana leaves", "is_correct": true },
+      { "text": "By pouring water from the well", "is_correct": false },
+      { "text": "By collecting rain", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "Who helped Rama Natha sell bananas in the market?",
+    "question_text": "What did Madhumati do with the bananas from the plantation?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "His wife, Madhumati, sold the bananas in the market and earned money.",
+    "explanation": "She took the bananas to the market and sold them for money.",
     "options": [
-      { "text": "The sage", "is_correct": false },
-      { "text": "His wife, Madhumati", "is_correct": true },
-      { "text": "The villagers", "is_correct": false },
-      { "text": "His father", "is_correct": false }
+      { "text": "She stored them at home", "is_correct": false },
+      { "text": "She cooked them", "is_correct": false },
+      { "text": "She sold them in the market", "is_correct": true },
+      { "text": "She gave them away", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "What did Rama Natha finally take to the sage after six years?",
+    "question_text": "How long did it take Rama Natha to collect five litres of dew?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "After six years of work, Rama Natha collected five litres of dew and took it to the sage.",
+    "explanation": "It took him six years to collect five litres of dew.",
     "options": [
-      { "text": "Banana fruits", "is_correct": false },
-      { "text": "Five litres of dew", "is_correct": true },
-      { "text": "Stacks of gold", "is_correct": false },
-      { "text": "A magic book", "is_correct": false }
+      { "text": "One year", "is_correct": false },
+      { "text": "Three years", "is_correct": false },
+      { "text": "Six years", "is_correct": true },
+      { "text": "Ten years", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "What happened when Rama Natha sprinkled the potion on a copper vessel?",
+    "question_text": "How did Rama Natha feel when nothing happened to the copper vessel?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "Nothing happened to the copper vessel, and Rama Natha felt cheated.",
+    "explanation": "He felt cheated and upset when the vessel did not turn into gold.",
     "options": [
-      { "text": "It turned to gold", "is_correct": false },
-      { "text": "It broke into pieces", "is_correct": false },
-      { "text": "Nothing happened", "is_correct": true },
-      { "text": "It disappeared", "is_correct": false }
+      { "text": "He was happy", "is_correct": false },
+      { "text": "He felt cheated and upset", "is_correct": true },
+      { "text": "He laughed loudly", "is_correct": false },
+      { "text": "He became sleepy", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "Who brought a big box filled with gold coins to show Rama Natha?",
+    "question_text": "What did Madhumati show Rama Natha when he felt cheated?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "Madhumati brought a big box of gold coins that she had earned from selling bananas.",
+    "explanation": "She showed him a box filled with gold coins earned from selling bananas.",
     "options": [
-      { "text": "The sage", "is_correct": false },
-      { "text": "Madhumati", "is_correct": true },
-      { "text": "The villagers", "is_correct": false },
-      { "text": "Rama Natha", "is_correct": false }
+      { "text": "A pot of water", "is_correct": false },
+      { "text": "A box of gold coins", "is_correct": true },
+      { "text": "A basket of bananas", "is_correct": false },
+      { "text": "A copper vessel", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "What lesson did the sage want Rama Natha to learn?",
+    "question_text": "Why was the sage pleased with Rama Natha in the end?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "The sage wanted Rama Natha to understand that wealth comes from hard work, not magic.",
+    "explanation": "The sage was pleased because Rama Natha finally understood the value of hard work.",
     "options": [
-      { "text": "Magic is real", "is_correct": false },
-      { "text": "Money grows on trees", "is_correct": false },
-      { "text": "Hard work creates wealth", "is_correct": true },
-      { "text": "Dew is precious", "is_correct": false }
+      { "text": "Because Rama Natha became rich", "is_correct": false },
+      { "text": "Because he collected dew", "is_correct": false },
+      { "text": "Because he understood the value of hard work", "is_correct": true },
+      { "text": "Because he made gold", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "What did Rama Natha do after learning the truth from the sage?",
+    "question_text": "What did Rama Natha and Madhumati continue to do after learning the truth?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "He understood the wisdom of the sage’s words and worked harder on his plantation.",
+    "explanation": "They continued to work hard on their plantation and became wealthy.",
     "options": [
-      { "text": "He stopped farming", "is_correct": false },
-      { "text": "He worked harder on his plantation", "is_correct": true },
-      { "text": "He left his village", "is_correct": false },
-      { "text": "He searched for another sage", "is_correct": false }
+      { "text": "They stopped working", "is_correct": false },
+      { "text": "They searched for more sages", "is_correct": false },
+      { "text": "They worked hard on their plantation", "is_correct": true },
+      { "text": "They left the village", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "What is the moral of 'A Bottle of Dew'?",
+    "question_text": "What is the best summary of the story 'A Bottle of Dew'?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "The story teaches that true wealth and success come from hard work, not shortcuts or magic.",
+    "explanation": "It is about Rama Natha who learns from a sage that wealth comes from hard work, not magic.",
     "options": [
-      { "text": "Cheating brings success", "is_correct": false },
-      { "text": "Hard work brings real wealth", "is_correct": true },
-      { "text": "Magic is stronger than work", "is_correct": false },
-      { "text": "Wealth comes only from luck", "is_correct": false }
+      { "text": "A man collects dew to become rich but learns that hard work creates wealth", "is_correct": true },
+      { "text": "A man finds a pot of gold in his field", "is_correct": false },
+      { "text": "A sage gives gold to a farmer", "is_correct": false },
+      { "text": "A wife teaches her husband to cook", "is_correct": false }
     ],
     "category_id": 2
   }
