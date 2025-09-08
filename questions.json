@@ -1,131 +1,196 @@
 [
   {
-    "question_text": "What did Rama Natha first ask the sage for?",
+    "question_text": "What did Rama Natha dream of becoming?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "Rama Natha asked the sage for a magic potion to make him rich.",
+    "explanation": "Rama Natha dreamed of becoming rich without working hard.",
     "options": [
-      { "text": "A magic potion to become rich", "is_correct": true },
-      { "text": "A bag of gold coins", "is_correct": false },
-      { "text": "A new house", "is_correct": false },
-      { "text": "A horse and cart", "is_correct": false }
+      { "text": "A farmer", "is_correct": false },
+      { "text": "A king", "is_correct": false },
+      { "text": "A rich man without hard work", "is_correct": true },
+      { "text": "A teacher", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "Where did Rama Natha plant bananas?",
+    "question_text": "What kind of man was the sage Mahipati?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "He planted bananas in his own garden to collect dew from their leaves.",
+    "explanation": "The sage Mahipati was wise and wanted to teach Rama Natha the value of hard work.",
     "options": [
-      { "text": "On the riverbank", "is_correct": false },
-      { "text": "In his garden", "is_correct": true },
-      { "text": "In the forest", "is_correct": false },
-      { "text": "On the hills", "is_correct": false }
+      { "text": "A greedy man", "is_correct": false },
+      { "text": "A wise man", "is_correct": true },
+      { "text": "A lazy man", "is_correct": false },
+      { "text": "A rich man", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "How did Rama Natha collect dew every morning?",
+    "question_text": "What was unusual about the sage’s demand for dew?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "He went to the banana plantation with a cloth and squeezed dew drops into a pot.",
+    "explanation": "It was unusual because no one could easily collect five litres of dew.",
     "options": [
-      { "text": "By digging the soil", "is_correct": false },
-      { "text": "By squeezing dew from banana leaves", "is_correct": true },
-      { "text": "By pouring water from the well", "is_correct": false },
-      { "text": "By collecting rain", "is_correct": false }
+      { "text": "Because dew is very rare to collect", "is_correct": true },
+      { "text": "Because dew tastes sweet", "is_correct": false },
+      { "text": "Because dew is found in deserts", "is_correct": false },
+      { "text": "Because dew is like water", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "What did Madhumati do with the bananas from the plantation?",
+    "question_text": "What work did Rama Natha do daily in the plantation?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "She took the bananas to the market and sold them for money.",
+    "explanation": "He watered and cared for the banana plantation every day.",
     "options": [
-      { "text": "She stored them at home", "is_correct": false },
-      { "text": "She cooked them", "is_correct": false },
-      { "text": "She sold them in the market", "is_correct": true },
-      { "text": "She gave them away", "is_correct": false }
+      { "text": "He sold clothes", "is_correct": false },
+      { "text": "He watered and cared for the plants", "is_correct": true },
+      { "text": "He cooked food", "is_correct": false },
+      { "text": "He built houses", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "How long did it take Rama Natha to collect five litres of dew?",
+    "question_text": "What did Rama Natha use to collect the dew drops?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "It took him six years to collect five litres of dew.",
+    "explanation": "He used a cloth to wipe dew from banana leaves and squeezed it into a pot.",
     "options": [
-      { "text": "One year", "is_correct": false },
-      { "text": "Three years", "is_correct": false },
-      { "text": "Six years", "is_correct": true },
-      { "text": "Ten years", "is_correct": false }
+      { "text": "A spoon", "is_correct": false },
+      { "text": "A cloth", "is_correct": true },
+      { "text": "A basket", "is_correct": false },
+      { "text": "A jar", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "How did Rama Natha feel when nothing happened to the copper vessel?",
+    "question_text": "What did the villagers notice about Rama Natha after some years?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "He felt cheated and upset when the vessel did not turn into gold.",
+    "explanation": "They noticed that Rama Natha became richer and happier through farming.",
     "options": [
-      { "text": "He was happy", "is_correct": false },
-      { "text": "He felt cheated and upset", "is_correct": true },
-      { "text": "He laughed loudly", "is_correct": false },
-      { "text": "He became sleepy", "is_correct": false }
+      { "text": "He became poorer", "is_correct": false },
+      { "text": "He became richer and happier", "is_correct": true },
+      { "text": "He left the village", "is_correct": false },
+      { "text": "He became lazy", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "What did Madhumati show Rama Natha when he felt cheated?",
+    "question_text": "Why did Madhumati smile when Rama Natha felt cheated?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "She showed him a box filled with gold coins earned from selling bananas.",
+    "explanation": "She smiled because she knew their real wealth was from the plantation and not the potion.",
     "options": [
-      { "text": "A pot of water", "is_correct": false },
-      { "text": "A box of gold coins", "is_correct": true },
-      { "text": "A basket of bananas", "is_correct": false },
-      { "text": "A copper vessel", "is_correct": false }
+      { "text": "Because she liked the sage", "is_correct": false },
+      { "text": "Because she knew their real wealth was from farming", "is_correct": true },
+      { "text": "Because she wanted more dew", "is_correct": false },
+      { "text": "Because she disliked copper", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "Why was the sage pleased with Rama Natha in the end?",
+    "question_text": "What was inside the box Madhumati brought?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "The sage was pleased because Rama Natha finally understood the value of hard work.",
+    "explanation": "The box was filled with gold coins earned from selling bananas.",
     "options": [
-      { "text": "Because Rama Natha became rich", "is_correct": false },
-      { "text": "Because he collected dew", "is_correct": false },
-      { "text": "Because he understood the value of hard work", "is_correct": true },
-      { "text": "Because he made gold", "is_correct": false }
+      { "text": "Silver coins", "is_correct": false },
+      { "text": "Gold coins", "is_correct": true },
+      { "text": "Copper pots", "is_correct": false },
+      { "text": "Bananas", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "What did Rama Natha and Madhumati continue to do after learning the truth?",
+    "question_text": "What did the sage want Rama Natha to realise?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "They continued to work hard on their plantation and became wealthy.",
+    "explanation": "The sage wanted him to realise that wealth and success come only through hard work.",
     "options": [
-      { "text": "They stopped working", "is_correct": false },
-      { "text": "They searched for more sages", "is_correct": false },
-      { "text": "They worked hard on their plantation", "is_correct": true },
-      { "text": "They left the village", "is_correct": false }
+      { "text": "That magic is real", "is_correct": false },
+      { "text": "That dew is precious", "is_correct": false },
+      { "text": "That wealth comes through hard work", "is_correct": true },
+      { "text": "That copper is gold", "is_correct": false }
     ],
     "category_id": 2
   },
   {
-    "question_text": "What is the best summary of the story 'A Bottle of Dew'?",
+    "question_text": "What is the correct order of events in the story?",
     "subcategory_id": 2,
     "tag_id": 6,
-    "explanation": "It is about Rama Natha who learns from a sage that wealth comes from hard work, not magic.",
+    "explanation": "First Rama Natha met the sage, then planted bananas, collected dew, gave it to the sage, and finally learnt the truth.",
     "options": [
-      { "text": "A man collects dew to become rich but learns that hard work creates wealth", "is_correct": true },
-      { "text": "A man finds a pot of gold in his field", "is_correct": false },
-      { "text": "A sage gives gold to a farmer", "is_correct": false },
-      { "text": "A wife teaches her husband to cook", "is_correct": false }
+      { "text": "Met sage → Planted bananas → Collected dew → Learnt truth", "is_correct": true },
+      { "text": "Collected dew → Learnt truth → Met sage → Planted bananas", "is_correct": false },
+      { "text": "Learnt truth → Collected dew → Met sage → Sold bananas", "is_correct": false },
+      { "text": "Planted bananas → Learnt truth → Met sage → Collected dew", "is_correct": false }
+    ],
+    "category_id": 2
+  },
+  {
+    "question_text": "Why was dew important in the story?",
+    "subcategory_id": 2,
+    "tag_id": 6,
+    "explanation": "The dew was part of the sage’s plan to keep Rama Natha busy and teach him hard work.",
+    "options": [
+      { "text": "Because it made him rich instantly", "is_correct": false },
+      { "text": "Because it was magical water", "is_correct": false },
+      { "text": "Because it was used to teach him hard work", "is_correct": true },
+      { "text": "Because it was used as medicine", "is_correct": false }
+    ],
+    "category_id": 2
+  },
+  {
+    "question_text": "How did Rama Natha finally change?",
+    "subcategory_id": 2,
+    "tag_id": 6,
+    "explanation": "He became a hardworking man who understood that success comes from effort, not shortcuts.",
+    "options": [
+      { "text": "He became a sage", "is_correct": false },
+      { "text": "He became hardworking and wise", "is_correct": true },
+      { "text": "He became lazy", "is_correct": false },
+      { "text": "He became a magician", "is_correct": false }
+    ],
+    "category_id": 2
+  },
+  {
+    "question_text": "Which character showed wisdom throughout the story?",
+    "subcategory_id": 2,
+    "tag_id": 6,
+    "explanation": "The sage Mahipati showed wisdom by guiding Rama Natha to learn the truth about hard work.",
+    "options": [
+      { "text": "Rama Natha", "is_correct": false },
+      { "text": "The sage Mahipati", "is_correct": true },
+      { "text": "The villagers", "is_correct": false },
+      { "text": "Madhumati", "is_correct": false }
+    ],
+    "category_id": 2
+  },
+  {
+    "question_text": "Which character showed patience and support?",
+    "subcategory_id": 2,
+    "tag_id": 6,
+    "explanation": "Madhumati showed patience and supported Rama Natha by selling bananas and managing money.",
+    "options": [
+      { "text": "The sage", "is_correct": false },
+      { "text": "Madhumati", "is_correct": true },
+      { "text": "The villagers", "is_correct": false },
+      { "text": "Rama Natha", "is_correct": false }
+    ],
+    "category_id": 2
+  },
+  {
+    "question_text": "What is the main message of the story?",
+    "subcategory_id": 2,
+    "tag_id": 6,
+    "explanation": "The main message is that there are no shortcuts to success; hard work always pays off.",
+    "options": [
+      { "text": "Shortcuts always work", "is_correct": false },
+      { "text": "Hard work pays off", "is_correct": true },
+      { "text": "Magic can make you rich", "is_correct": false },
+      { "text": "Dreaming is enough", "is_correct": false }
     ],
     "category_id": 2
   }
