@@ -1,131 +1,92 @@
 [
   {
-    "question_text": "सुबह होने का सबसे पहला संकेत क्या होता है?",
+    "question_text": "What are stepwells also called in some parts of India?",
     "subcategory_id": 3,
-    "tag_id": 7,
-    "explanation": "सुबह होने पर सूर्य की किरणें धरती पर आती हैं और उजाला फैलता है।",
+    "tag_id": 8,
+    "explanation": "Stepwells are also called baolis in some regions.",
     "options": [
-      { "text": "पक्षियों का सो जाना", "is_correct": false },
-      { "text": "सूर्य की किरणें आना", "is_correct": true },
-      { "text": "पेड़ का झूमना", "is_correct": false },
-      { "text": "चाँद का उगना", "is_correct": false }
+      { "text": "Tankas", "is_correct": false },
+      { "text": "Baolis", "is_correct": true },
+      { "text": "Ooranis", "is_correct": false },
+      { "text": "Panam Keni", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "किरण का मुख्य काम क्या है?",
+    "question_text": "How were water pots like matkas used in earlier times?",
     "subcategory_id": 3,
-    "tag_id": 7,
-    "explanation": "किरण का काम सोते बच्चों को जगाना और उजाला फैलाना है।",
+    "tag_id": 8,
+    "explanation": "Matkas were used to store drinking water and keep it cool.",
     "options": [
-      { "text": "सोते बच्चों को जगाना", "is_correct": true },
-      { "text": "बच्चों को सुलाना", "is_correct": false },
-      { "text": "बच्चों के साथ खेलना", "is_correct": false },
-      { "text": "कहानियाँ सुनाना", "is_correct": false }
+      { "text": "For planting trees", "is_correct": false },
+      { "text": "To store drinking water and keep it cool", "is_correct": true },
+      { "text": "As musical instruments", "is_correct": false },
+      { "text": "To collect rainwater only", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "कविता में ‘वहाँ’ शब्द का संकेत कहाँ है?",
+    "question_text": "Where are modern plastic water tanks usually kept?",
     "subcategory_id": 3,
-    "tag_id": 7,
-    "explanation": "कविता में ‘वहाँ’ का संकेत सूर्य की दुनिया की ओर है।",
+    "tag_id": 8,
+    "explanation": "Modern plastic tanks are usually kept on rooftops of houses.",
     "options": [
-      { "text": "धरती की ओर", "is_correct": false },
-      { "text": "सूर्य की दुनिया की ओर", "is_correct": true },
-      { "text": "चाँद की ओर", "is_correct": false },
-      { "text": "बादलों की ओर", "is_correct": false }
+      { "text": "In the basement", "is_correct": false },
+      { "text": "On rooftops of houses", "is_correct": true },
+      { "text": "In the courtyard", "is_correct": false },
+      { "text": "In the kitchen", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "यदि किरण न आए तो क्या होगा?",
+    "question_text": "What problem did Suma’s family face when water was not available?",
     "subcategory_id": 3,
-    "tag_id": 7,
-    "explanation": "यदि किरण न आए तो धरती पर अंधेरा ही अंधेरा रहेगा और जीवन प्रभावित होगा।",
+    "tag_id": 8,
+    "explanation": "They faced difficulty in cooking, bathing, cleaning, and drinking.",
     "options": [
-      { "text": "हमेशा दिन रहेगा", "is_correct": false },
-      { "text": "हमेशा रात रहेगी", "is_correct": true },
-      { "text": "पेड़ उगना बंद हो जाएंगे", "is_correct": false },
-      { "text": "पक्षी बोलना बंद कर देंगे", "is_correct": false }
+      { "text": "They had no food to eat", "is_correct": false },
+      { "text": "They could not cook, bathe, clean, or drink easily", "is_correct": true },
+      { "text": "They could not go to school", "is_correct": false },
+      { "text": "They had no electricity", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "पेड़ पर गिलहरी और चिड़ियाँ क्यों आती हैं?",
+    "question_text": "Why was tanker water not enough for the families?",
     "subcategory_id": 3,
-    "tag_id": 7,
-    "explanation": "पेड़ पर गिलहरी और चिड़ियाँ अपने आप आती हैं क्योंकि वहाँ उन्हें घर और भोजन मिलता है।",
+    "tag_id": 8,
+    "explanation": "The tankers supplied only limited water, which could not meet everyone’s needs.",
     "options": [
-      { "text": "क्योंकि पेड़ जादुई है", "is_correct": false },
-      { "text": "क्योंकि पेड़ पर उन्हें घर और भोजन मिलता है", "is_correct": true },
-      { "text": "क्योंकि उन्हें इंसान बुलाता है", "is_correct": false },
-      { "text": "क्योंकि वे खरीदकर लाए जाते हैं", "is_correct": false }
+      { "text": "The tanker water was salty", "is_correct": false },
+      { "text": "The tankers gave limited water for many families", "is_correct": true },
+      { "text": "The tanker came very late at night", "is_correct": false },
+      { "text": "The tanker water was too hot", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "पेड़ के नीचे छाया में खेलने का क्या लाभ है?",
+    "question_text": "How did Suma feel when water was not available?",
     "subcategory_id": 3,
-    "tag_id": 7,
-    "explanation": "पेड़ की छाया में खेलने से ठंडक मिलती है और अच्छा लगता है।",
+    "tag_id": 8,
+    "explanation": "She felt shocked, worried, and understood the importance of water.",
     "options": [
-      { "text": "ठंडक और आनंद मिलता है", "is_correct": true },
-      { "text": "अंधेरा हो जाता है", "is_correct": false },
-      { "text": "गर्मी बढ़ जाती है", "is_correct": false },
-      { "text": "पक्षी दूर हो जाते हैं", "is_correct": false }
+      { "text": "She was very happy", "is_correct": false },
+      { "text": "She felt shocked and worried", "is_correct": true },
+      { "text": "She did not care", "is_correct": false },
+      { "text": "She thought it was fun", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "सूरज की किरणें हमें क्या देती हैं?",
+    "question_text": "What did Suma finally understand after the experience?",
     "subcategory_id": 3,
-    "tag_id": 7,
-    "explanation": "सूरज की किरणें हमें प्रकाश और ऊर्जा देती हैं।",
+    "tag_id": 8,
+    "explanation": "She understood that water is precious and must be saved.",
     "options": [
-      { "text": "अंधेरा", "is_correct": false },
-      { "text": "प्रकाश और ऊर्जा", "is_correct": true },
-      { "text": "शोर", "is_correct": false },
-      { "text": "बारिश", "is_correct": false }
-    ],
-    "category_id": 1
-  },
-  {
-    "question_text": "पेड़ लगाने से क्या-क्या फायदे होते हैं?",
-    "subcategory_id": 3,
-    "tag_id": 7,
-    "explanation": "पेड़ लगाने से छाया, फल, ताजी हवा और पशु-पक्षियों का घर मिलता है।",
-    "options": [
-      { "text": "केवल फल", "is_correct": false },
-      { "text": "छाया, फल, ताजी हवा और घर", "is_correct": true },
-      { "text": "सिर्फ छाया", "is_correct": false },
-      { "text": "सिर्फ लकड़ी", "is_correct": false }
-    ],
-    "category_id": 1
-  },
-  {
-    "question_text": "पेड़ बच्चों को किस तरह मदद करते हैं?",
-    "subcategory_id": 3,
-    "tag_id": 7,
-    "explanation": "पेड़ बच्चों को खेलने की जगह, छाया और ताजगी देते हैं।",
-    "options": [
-      { "text": "खिलौने देते हैं", "is_correct": false },
-      { "text": "खेलने की जगह और छाया देते हैं", "is_correct": true },
-      { "text": "गाने सुनाते हैं", "is_correct": false },
-      { "text": "किताबें देते हैं", "is_correct": false }
-    ],
-    "category_id": 1
-  },
-  {
-    "question_text": "‘पेड़ का जादू’ कहानी हमें क्या सिखाती है?",
-    "subcategory_id": 3,
-    "tag_id": 7,
-    "explanation": "कहानी सिखाती है कि पेड़ लगाने से हमें प्रकृति का सुख और अनेक लाभ मिलते हैं।",
-    "options": [
-      { "text": "जादू से गिलहरी आती है", "is_correct": false },
-      { "text": "पेड़ हमें प्रकृति का सुख और लाभ देते हैं", "is_correct": true },
-      { "text": "पेड़ पर खेलना मना है", "is_correct": false },
-      { "text": "पेड़ से केवल लकड़ी मिलती है", "is_correct": false }
+      { "text": "That water is not important", "is_correct": false },
+      { "text": "That water is precious and must be saved", "is_correct": true },
+      { "text": "That tankers give unlimited water", "is_correct": false },
+      { "text": "That bottled water is better", "is_correct": false }
     ],
     "category_id": 1
   }
