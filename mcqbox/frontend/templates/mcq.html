@@ -20,7 +20,7 @@
        "position": 1,
        "item":
        {
-        "@id": "https://example.com/category",
+        "@id": "https://www.mxqbox.site/category",
         "name": "Category"
         }
       },
@@ -29,8 +29,8 @@
       "position": 2,
       "item":
        {
-         "@id": "https://example.com/category/{{category | replace(' ', '-')}}",
-         "name": "{{category | replace(' ', '-')}}"
+         "@id": "https://www.mxqbox.site/category/{{category | replace(' ', '-')}}",
+         "name": "{{category | replace(' ', '-') | title}}"
        }
       },
       {
@@ -38,8 +38,8 @@
       "position": 3,
       "item":
        {
-         "@id": "https://example.com/category/{{category | replace(' ', '-')}}/{{subcat | replace(' ', '-')}}",
-         "name": "{{subcat | replace(' ', '-')}}"
+         "@id": "https://www.mxqbox.site/category/{{category | replace(' ', '-')}}/{{subcat | replace(' ', '-')}}",
+         "name": "{{subcat | replace(' ', '-') | title}}"
        }
       }
      ]
