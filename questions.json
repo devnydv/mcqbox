@@ -5,7 +5,7 @@
     "tag_id": 8,
     "explanation": "Stepwells are also called baolis in some regions.",
     "options": [
-      { "text": "Tankas", "is_correct": false },
+      { "text": "Tankas ", "is_correct": false },
       { "text": "Baolis", "is_correct": true },
       { "text": "Ooranis", "is_correct": false },
       { "text": "Panam Keni", "is_correct": false }
