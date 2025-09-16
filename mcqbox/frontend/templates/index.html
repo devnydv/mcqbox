@@ -6,7 +6,24 @@
     <title>MCQBox - Interactive Learning Platform</title>
     <link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/style.css') }}">
     <meta name="description" content="Master any subject with MCQBox. Engage with interactive multiple-choice questions designed to enhance your learning experience.">
-    
+    <link rel="canonical" href="https://www.mcqbox.site/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://www.mcqbox.site/",
+  "name": "MCQBox",
+  "description": "Master any subject with MCQBox. Engage with interactive multiple-choice questions designed to enhance your learning experience.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "MCQBox",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.mcqbox.site{{ url_for('frontend.static', filename='asset/icon.webp') }}"
+    }
+  }
+}
+</script>
 {% endblock %}
 
 {% block content %}
