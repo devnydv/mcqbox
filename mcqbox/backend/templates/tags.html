@@ -66,7 +66,7 @@
                             {% for tag in tags %}
                             <tr>
                                 <td>
-                                    <strong>{{ tag.name }}</strong>
+                                    <strong> {{ loop.index }}. {{ tag.name }}</strong>
                                 </td>
                                 <td>
                                     <span class="badge bg-secondary">
