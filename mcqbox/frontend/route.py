@@ -2,12 +2,12 @@ from mcqbox import app
 from flask import Flask, render_template, request, redirect
 from mcqbox.model import db, Category, Subcategory, Question, Tag
 
-@app.before_request
-def enforce_lowercase_url():
-    url = request.url
-    lowercase_url = url.lower()
-    if url != lowercase_url:
-        return redirect(lowercase_url, code=301)
+# @app.before_request
+# def enforce_lowercase_url():
+#     url = request.url
+#     lowercase_url = url.lower()
+#     if url != lowercase_url:
+#         return redirect(lowercase_url, code=301)
 
 @app.route("/")
 def home():

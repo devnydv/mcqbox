@@ -58,7 +58,8 @@
     <div class="chip-container">
         {% for tag in tags %}
         <a href="/category/{{category | replace(' ', '-')}}/{{subcat | replace(' ', '-')}}?tag={{tag.name | lower | replace(' ', '-')}}"
-            style="text-decoration: none;">
+            style="text-decoration: none;" title="Explore {{tag.name | title}} questions">
+            
             <div class="chip">{{tag.name |title}}</div>
         </a>
         {%endfor%}
