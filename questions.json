@@ -1,92 +1,160 @@
 [
   {
-    "question_text": "What are stepwells also called in some parts of India?",
-    "subcategory_id": 3,
-    "tag_id": 8,
-    "explanation": "Stepwells are also called baolis in some regions.",
+    "question_text": "राजा विक्रमादित्य को मूर्तियों ने परखने का क्या कारण था?",
+    "subcategory_id": 1,
+    "tag_id": 13,
+    "explanation": "मूर्तियों ने राजा की सत्यनिष्ठा और पवित्रता को परखने के लिए उसे प्रश्न पूछे। वे केवल एक निष्पक्ष और कलुषरहित व्यक्ति को ही सिंहासन पर बैठाना चाहती थीं।",
     "options": [
-      { "text": "Tankas ", "is_correct": false },
-      { "text": "Baolis", "is_correct": true },
-      { "text": "Ooranis", "is_correct": false },
-      { "text": "Panam Keni", "is_correct": false }
+      { "text": "राजा की शक्ति जाँचने के लिए", "is_correct": false },
+      { "text": "राजा को अपमानित करने के लिए", "is_correct": false },
+      { "text": "राजा की सत्यनिष्ठा परखने के लिए", "is_correct": true },
+      { "text": "राजा को डराने के लिए", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "How were water pots like matkas used in earlier times?",
-    "subcategory_id": 3,
-    "tag_id": 8,
-    "explanation": "Matkas were used to store drinking water and keep it cool.",
+    "question_text": "राजा को अपने पाप का प्रायश्चित कैसे करना पड़ा?",
+    "subcategory_id": 1,
+    "tag_id": 13,
+    "explanation": "राजा ने उपवास रखा और ईश्वर से प्रार्थना करके अपने पाप का प्रायश्चित किया ताकि वह शुद्ध हो सके।",
     "options": [
-      { "text": "For planting trees", "is_correct": false },
-      { "text": "To store drinking water and keep it cool", "is_correct": true },
-      { "text": "As musical instruments", "is_correct": false },
-      { "text": "To collect rainwater only", "is_correct": false }
+      { "text": "त्याग करके", "is_correct": false },
+      { "text": "उपवास और प्रार्थना करके", "is_correct": true },
+      { "text": "युद्ध जीतकर", "is_correct": false },
+      { "text": "लोगों को दंड देकर", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "Where are modern plastic water tanks usually kept?",
-    "subcategory_id": 3,
-    "tag_id": 8,
-    "explanation": "Modern plastic tanks are usually kept on rooftops of houses.",
+    "question_text": "इस कहानी में बच्चों की भूमिका क्या है?",
+    "subcategory_id": 1,
+    "tag_id": 13,
+    "explanation": "बच्चों ने खेल-खेल में न्याय का अभ्यास किया। उनकी निष्पक्षता और सादगी ने यह दिखाया कि सच्चा न्याय निष्कलुष मन से ही संभव है।",
     "options": [
-      { "text": "In the basement", "is_correct": false },
-      { "text": "On rooftops of houses", "is_correct": true },
-      { "text": "In the courtyard", "is_correct": false },
-      { "text": "In the kitchen", "is_correct": false }
+      { "text": "बच्चे केवल दर्शक थे", "is_correct": false },
+      
+      { "text": "बच्चों ने राजा का विरोध किया", "is_correct": false },
+      { "text": "बच्चों ने सिंहासन तोड़ दिया", "is_correct": false },
+      { "text": "बच्चों ने न्याय का अभ्यास किया", "is_correct": true }
     ],
     "category_id": 1
   },
   {
-    "question_text": "What problem did Suma’s family face when water was not available?",
-    "subcategory_id": 3,
-    "tag_id": 8,
-    "explanation": "They faced difficulty in cooking, bathing, cleaning, and drinking.",
+    "question_text": "‘न्याय’ शब्द का पर्यायवाची कौन-सा है?",
+    "subcategory_id": 1,
+    "tag_id": 13,
+    "explanation": "‘न्याय’ के पर्यायवाची हैं – धर्म, सत्य और निर्णय।",
     "options": [
-      { "text": "They had no food to eat", "is_correct": false },
-      { "text": "They could not cook, bathe, clean, or drink easily", "is_correct": true },
-      { "text": "They could not go to school", "is_correct": false },
-      { "text": "They had no electricity", "is_correct": false }
+      { "text": "धर्म", "is_correct": true },
+      { "text": "अन्याय", "is_correct": false },
+      { "text": "दंड", "is_correct": false },
+      { "text": "भय", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "Why was tanker water not enough for the families?",
-    "subcategory_id": 3,
-    "tag_id": 8,
-    "explanation": "The tankers supplied only limited water, which could not meet everyone’s needs.",
+    "question_text": "‘कलुष’ शब्द का सही विलोम चुनिए।",
+    "subcategory_id": 1,
+    "tag_id": 13,
+    "explanation": "‘कलुष’ का अर्थ है पाप या दोष। इसका विलोम है ‘निर्मल’ या ‘पवित्र’।",
     "options": [
-      { "text": "The tanker water was salty", "is_correct": false },
-      { "text": "The tankers gave limited water for many families", "is_correct": true },
-      { "text": "The tanker came very late at night", "is_correct": false },
-      { "text": "The tanker water was too hot", "is_correct": false }
+      { "text": "निर्मल", "is_correct": true },
+      
+      { "text": "गंदा", "is_correct": false },
+      { "text": "अशुद्ध", "is_correct": false },
+      { "text": "दोषपूर्ण", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "How did Suma feel when water was not available?",
-    "subcategory_id": 3,
-    "tag_id": 8,
-    "explanation": "She felt shocked, worried, and understood the importance of water.",
+    "question_text": "‘सिंहासन’ शब्द का लघुरूप क्या होगा?",
+    "subcategory_id": 1,
+    "tag_id": 13,
+    "explanation": "‘सिंहासन’ का लघुरूप ‘आसन’ होगा।",
     "options": [
-      { "text": "She was very happy", "is_correct": false },
-      { "text": "She felt shocked and worried", "is_correct": true },
-      { "text": "She did not care", "is_correct": false },
-      { "text": "She thought it was fun", "is_correct": false }
+      { "text": "आसन", "is_correct": true },
+      { "text": "सिंह", "is_correct": false },
+      { "text": "सिंहता", "is_correct": false },
+      { "text": "राजा", "is_correct": false }
     ],
     "category_id": 1
   },
   {
-    "question_text": "What did Suma finally understand after the experience?",
-    "subcategory_id": 3,
-    "tag_id": 8,
-    "explanation": "She understood that water is precious and must be saved.",
+    "question_text": "कहानी में ‘न्याय की कुर्सी’ का क्या प्रतीकात्मक अर्थ है?",
+    "subcategory_id": 1,
+    "tag_id": 13,
+    "explanation": "‘न्याय की कुर्सी’ सत्य, धर्म और निष्पक्षता का प्रतीक है। उस पर वही बैठ सकता है जो कलुषरहित और न्यायप्रिय हो।",
     "options": [
-      { "text": "That water is not important", "is_correct": false },
-      { "text": "That water is precious and must be saved", "is_correct": true },
-      { "text": "That tankers give unlimited water", "is_correct": false },
-      { "text": "That bottled water is better", "is_correct": false }
+      { "text": "धन और ऐश्वर्य का प्रतीक", "is_correct": false },
+      { "text": "सत्ता और शक्ति का प्रतीक", "is_correct": false },
+      { "text": "सत्य और निष्पक्षता का प्रतीक", "is_correct": true },
+      { "text": "युद्ध और वीरता का प्रतीक", "is_correct": false }
+    ],
+    "category_id": 1
+  },
+  {
+    "question_text": "‘प्रायश्चित’ शब्द का सही अर्थ क्या है?",
+    "subcategory_id": 1,
+    "tag_id": 13,
+    "explanation": "‘प्रायश्चित’ का अर्थ है किए गए पाप या गलती के लिए क्षमा माँगना और शुद्धि हेतु प्रयास करना।",
+    "options": [
+      { "text": "नया काम करना", "is_correct": false },
+      { "text": "क्षमा और शुद्धि हेतु प्रयास", "is_correct": true },
+      { "text": "दंड देना", "is_correct": false },
+      { "text": "त्याग करना", "is_correct": false }
+    ],
+    "category_id": 1
+  },
+  {
+    "question_text": "कहानी हमें क्या शिक्षा देती है?",
+    "subcategory_id": 1,
+    "tag_id": 13,
+    "explanation": "कहानी सिखाती है कि केवल बाहरी शक्ति या पद नहीं, बल्कि निष्पक्षता, सत्य और पवित्रता ही सच्चे न्याय की नींव हैं।",
+    "options": [
+      { "text": "न्याय करने के लिए बल जरूरी है", "is_correct": false },
+      { "text": "सच्चा न्याय मन की पवित्रता से होता है", "is_correct": true },
+      { "text": "न्याय केवल राजा कर सकता है", "is_correct": false },
+      { "text": "न्याय बच्चों का खेल है", "is_correct": false }
+    ],
+    "category_id": 1
+  },
+  {
+    "question_text": "निम्नलिखित में से कौन-सा वाक्य शुद्ध है?",
+    "subcategory_id": 1,
+    "tag_id": 13,
+    "explanation": "सही वाक्य है – ‘राजा ने न्याय किया।’ इसमें व्याकरण की त्रुटि नहीं है।",
+    "options": [
+      { "text": "राजा न्याय किया।", "is_correct": false },
+      
+      { "text": "राजा न्याय करते।", "is_correct": false },
+      { "text": "राजा न्याय कर।", "is_correct": false },
+      { "text": "राजा ने न्याय किया।", "is_correct": true }
+    ],
+    "category_id": 1
+  },
+  {
+    "question_text": "‘न्यायप्रिय’ शब्द किस संधि से बना है?",
+    "subcategory_id": 1,
+    "tag_id": 13,
+    "explanation": "‘न्याय’ + ‘प्रिय’ के मेल से ‘न्यायप्रिय’ शब्द बना है। यह संधि समास का रूप है।",
+    "options": [
+      { "text": "न्याय + प्रिय", "is_correct": true },
+      { "text": "न्याय + प्रीति", "is_correct": false },
+      { "text": "न्याय + प्राण", "is_correct": false },
+      { "text": "न्याय + प्रेम", "is_correct": false }
+    ],
+    "category_id": 1
+  },
+  {
+    "question_text": "‘न्याय की कुर्सी’ अध्याय के लिए अन्य उपयुक्त शीर्षक क्या हो सकता है?",
+    "subcategory_id": 1,
+    "tag_id": 13,
+    "explanation": "इस अध्याय का एक उपयुक्त शीर्षक हो सकता है – ‘सच्चा न्याय’। क्योंकि पूरी कहानी न्याय की शुद्धता और सत्य पर आधारित है।",
+    "options": [
+      { "text": "सच्चा न्याय", "is_correct": true },
+      { "text": "राजा और मूर्तियाँ", "is_correct": false },
+      { "text": "बच्चों का खेल", "is_correct": false },
+      { "text": "पथरीली कुर्सी", "is_correct": false }
     ],
     "category_id": 1
   }
