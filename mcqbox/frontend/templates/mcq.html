@@ -77,13 +77,13 @@
 
         <div class="question-number">Question {{ loop.index }}</div>
         <h2 class="question">{{question.question_text}}</h2>
-        <ul style="list-style-type: none;">
+        <!-- <ul style="list-style-type: none;"> -->
             <div class="options">
 
                 {%for opt in question.options%}
 
                 <div class="option" onclick="selectOption(this, {{opt.is_correct |lower}})">
-                    <li>{{ loop.index }}) {{opt.text}}</li>
+                    <p>{{ loop.index }}) {{opt.text}}</p>
                 </div>
 
                 {% endfor %}
@@ -93,7 +93,7 @@
                 <div class="option" onclick="selectOption(this, false)">C) 3.16</div>
                 <div class="option" onclick="selectOption(this, false)">D) 3.18</div> -->
             </div>
-        </ul>
+        <!-- </ul> -->
 
         <div class="lol">
 
